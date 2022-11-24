@@ -1,14 +1,27 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ManagerScene : MonoBehaviour
 {
+    [SerializeField] private GameObject _loadingScreen;
 
+    private void Start()
+    {
+        if (_loadingScreen)
+        {
+            _loadingScreen.SetActive(false);
+        }
+     
+    }
     public void PlayGame()
     {
-        SceneManager.LoadScene(1);
+        if (_loadingScreen)
+        {
+            _loadingScreen.SetActive(true);
+        }
+        StartCoroutine(LoadScreen());
     }
     
     public void ExitGame()
@@ -19,5 +32,14 @@ public class ManagerScene : MonoBehaviour
     public void ExitMainScene()
     {
         SceneManager.LoadScene(0);
+    }
+
+    IEnumerator LoadScreen()
+    {
+        AsyncOperation acyncLoad = SceneManager.LoadSceneAsync(1);
+        while (!acyncLoad.isDone)
+        {
+            yield return null;
+        }
     }
 }
