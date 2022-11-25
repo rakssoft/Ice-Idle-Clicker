@@ -1,0 +1,237 @@
+
+dz_5_yulia_kuryaeva.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+armor_forearm_right_1
+  rotate: true
+  xy: 666, 803
+  size: 53, 116
+  orig: 53, 117
+  offset: 0, 1
+  index: -1
+arrow_3
+  rotate: false
+  xy: 215, 615
+  size: 16, 75
+  orig: 17, 77
+  offset: 1, 0
+  index: -1
+blade_left
+  rotate: true
+  xy: 215, 692
+  size: 43, 17
+  orig: 49, 22
+  offset: 1, 1
+  index: -1
+closed_rectangular_shield
+  rotate: true
+  xy: 546, 925
+  size: 97, 376
+  orig: 97, 376
+  offset: 0, 0
+  index: -1
+collarbone_left
+  rotate: false
+  xy: 1006, 745
+  size: 16, 20
+  orig: 18, 22
+  offset: 1, 1
+  index: -1
+collarbone_right
+  rotate: false
+  xy: 757, 747
+  size: 87, 46
+  orig: 89, 48
+  offset: 1, 1
+  index: -1
+elbow_bone_left_1
+  rotate: false
+  xy: 665, 782
+  size: 90, 19
+  orig: 90, 19
+  offset: 0, 0
+  index: -1
+elbow_bone_right
+  rotate: true
+  xy: 539, 823
+  size: 27, 114
+  orig: 27, 114
+  offset: 0, 0
+  index: -1
+fibula_left
+  rotate: true
+  xy: 539, 779
+  size: 42, 102
+  orig: 42, 102
+  offset: 0, 0
+  index: -1
+fibula_right
+  rotate: true
+  xy: 666, 858
+  size: 65, 125
+  orig: 65, 125
+  offset: 0, 0
+  index: -1
+foot_left_1
+  rotate: false
+  xy: 914, 727
+  size: 90, 38
+  orig: 90, 38
+  offset: 0, 0
+  index: -1
+foot_right_1
+  rotate: false
+  xy: 784, 795
+  size: 100, 40
+  orig: 100, 40
+  offset: 0, 0
+  index: -1
+handle_1
+  rotate: true
+  xy: 924, 980
+  size: 42, 98
+  orig: 42, 98
+  offset: 0, 0
+  index: -1
+handle_2
+  rotate: true
+  xy: 914, 767
+  size: 24, 91
+  orig: 24, 91
+  offset: 0, 0
+  index: -1
+helmet_1_up
+  rotate: true
+  xy: 2, 577
+  size: 103, 127
+  orig: 103, 127
+  offset: 0, 0
+  index: -1
+hip_bone_left
+  rotate: false
+  xy: 918, 793
+  size: 102, 108
+  orig: 102, 110
+  offset: 0, 2
+  index: -1
+hip_bone_right
+  rotate: true
+  xy: 793, 837
+  size: 30, 123
+  orig: 30, 123
+  offset: 0, 0
+  index: -1
+humerus_left_2
+  rotate: true
+  xy: 539, 722
+  size: 55, 101
+  orig: 55, 101
+  offset: 0, 0
+  index: -1
+humerus_right
+  rotate: true
+  xy: 131, 579
+  size: 101, 80
+  orig: 101, 80
+  offset: 0, 0
+  index: -1
+open_rectangular_shield
+  rotate: true
+  xy: 2, 881
+  size: 111, 368
+  orig: 111, 368
+  offset: 0, 0
+  index: -1
+radius_left_2
+  rotate: true
+  xy: 643, 758
+  size: 63, 20
+  orig: 64, 21
+  offset: 0, 0
+  index: -1
+radius_right
+  rotate: false
+  xy: 886, 736
+  size: 26, 99
+  orig: 27, 99
+  offset: 0, 0
+  index: -1
+ribs_dw
+  rotate: true
+  xy: 234, 758
+  size: 121, 135
+  orig: 122, 135
+  offset: 0, 0
+  index: -1
+ribs_up
+  rotate: true
+  xy: 234, 636
+  size: 120, 135
+  orig: 120, 135
+  offset: 0, 0
+  index: -1
+skull
+  rotate: true
+  xy: 924, 903
+  size: 75, 97
+  orig: 75, 97
+  offset: 0, 0
+  index: -1
+spear_1
+  rotate: false
+  xy: 2, 994
+  size: 542, 28
+  orig: 542, 29
+  offset: 0, 0
+  index: -1
+spine
+  rotate: true
+  xy: 2, 737
+  size: 142, 230
+  orig: 142, 230
+  offset: 0, 0
+  index: -1
+swords_2
+  rotate: true
+  xy: 2, 682
+  size: 53, 211
+  orig: 54, 211
+  offset: 0, 0
+  index: -1
+swords_3
+  rotate: true
+  xy: 372, 655
+  size: 337, 165
+  orig: 337, 165
+  offset: 0, 0
+  index: -1
+tibial_left
+  rotate: true
+  xy: 793, 869
+  size: 54, 123
+  orig: 54, 123
+  offset: 0, 0
+  index: -1
+tibial_right
+  rotate: true
+  xy: 539, 852
+  size: 71, 125
+  orig: 72, 125
+  offset: 1, 0
+  index: -1
+wrist_right_2_dw
+  rotate: false
+  xy: 665, 736
+  size: 45, 44
+  orig: 45, 44
+  offset: 0, 0
+  index: -1
+wrist_right_2_up
+  rotate: false
+  xy: 712, 738
+  size: 42, 42
+  orig: 42, 42
+  offset: 0, 0
+  index: -1
