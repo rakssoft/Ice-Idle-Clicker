@@ -1,20 +1,25 @@
-
 using UnityEngine;
 using UnityEngine.UI;
 
 public class BuildingDisplay : MonoBehaviour
 {
-    [SerializeField] private string _nameObject;
-    [SerializeField] private Image _spriteObject;
-    [SerializeField] private int _levelUpgrade;
-    [SerializeField] private int _costUpgrade;
-    [SerializeField] private string _description;
+    [SerializeField] private Text _levelUpgrade;
+    [SerializeField] private Text _countGoose;
 
-
-
-
-    public void DestroyObject()
+    private void Start()
     {
-        Destroy(gameObject);
+        ShowCountGoose(PlayerPrefs.GetInt("goose"));
+    }
+    private void OnEnable()
+    {
+        BuyGoose.coutnGoose += ShowCountGoose;  
+    }
+    private void OnDisable()
+    {
+        BuyGoose.coutnGoose -= ShowCountGoose;
+    }
+    public void ShowCountGoose(int goose)
+    {
+        _countGoose.text = PlayerPrefs.GetInt("goose").ToString("F0");
     }
 }
