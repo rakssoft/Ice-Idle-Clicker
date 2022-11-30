@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public class InputPlayer : MonoBehaviour
 {
-    [SerializeField] private CoinManager _coinManager;
+    [HideInInspector] [SerializeField] private CoinManager _coinManager;
     private InputSystems _inputSystem;
     public Vector2 MousePositions { get; private set; }
     public InputSystems Input => _inputSystem;
@@ -27,7 +27,7 @@ public class InputPlayer : MonoBehaviour
     }
 
     private void Update()
-    {        
+    {
         MousePositions = _inputSystem.Player.MousePositions.ReadValue<Vector2>();
         if (_inputSystem.Player.Touch.WasPerformedThisFrame() && !EventSystem.current.IsPointerOverGameObject())
         {
@@ -37,26 +37,31 @@ public class InputPlayer : MonoBehaviour
                 if (hit.collider.gameObject.TryGetComponent(out Coins coinsGameObject))
                 {
                     click?.Invoke(1);
-                 //   _coinManager.RecalEggs(1);
+                    //   _coinManager.RecalEggs(1);
                 }
             }
         }
-      
-    } 
 
-/*    private void TouchPlayer()
+    }
+
+    public void ClickButtonUI()
     {
-        if (!EventSystem.current.IsPointerOverGameObject())
-        {
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(new Vector3(MousePositions.x, MousePositions.y, 10)), Vector2.zero);
-            if (hit.collider != null)
-            {
-                if (hit.collider.gameObject.TryGetComponent(out Coins coinsGameObject))
-                {             
-                    _coinManager.RecalEggs(1);
-                }
+        click?.Invoke(1);
+    }
 
+    /*    private void TouchPlayer()
+        {
+            if (!EventSystem.current.IsPointerOverGameObject())
+            {
+                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(new Vector3(MousePositions.x, MousePositions.y, 10)), Vector2.zero);
+                if (hit.collider != null)
+                {
+                    if (hit.collider.gameObject.TryGetComponent(out Coins coinsGameObject))
+                    {             
+                        _coinManager.RecalEggs(1);
+                    }
+
+                }
             }
-        }
-    }*/
+        }*/
 }

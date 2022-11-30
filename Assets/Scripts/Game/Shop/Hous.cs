@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Hous : MonoBehaviour
 {
-    [SerializeField] private GameObject _housVer1, _housVer2, _housVer3;
-    [SerializeField] private GameObject _goose;
+    [HideInInspector] [SerializeField] private GameObject _housVer1, _housVer2, _housVer3;
+    [HideInInspector] [SerializeField] private GameObject _goose;
     private void Start()
     {
         _housVer1.SetActive(false);

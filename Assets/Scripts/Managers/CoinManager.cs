@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class CoinManager : MonoBehaviour
 {
-    [SerializeField] private Text _eggText;
-    [SerializeField] private Text _eggAutoCLickText;
+    [HideInInspector] [SerializeField] private Text _eggText;
+    [HideInInspector] [SerializeField] private Text _eggAutoCLickText;
     private float currenteggs;
 
     private void OnEnable()

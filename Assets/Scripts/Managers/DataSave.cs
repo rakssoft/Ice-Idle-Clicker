@@ -2,33 +2,43 @@ using UnityEngine;
 
 public class DataSave : MonoBehaviour
 {
-    [SerializeField] private float _priceHous;
-    [SerializeField] private float _priceFeeder;
-    [SerializeField] private float _priceFence;
-    [SerializeField] private float _priceMaraStatue;
-    [SerializeField] private float _priceGoose;
+    [SerializeField] private float _initialPriceHous;
+    [SerializeField] private float _initialPriceFeeder;
+    [SerializeField] private float _initialPriceFence;
+    [SerializeField] private float _initialPriceMaraStatue;
+    [SerializeField] private float _initialPriceGoose;
 
     private void Awake()
     {
+        if (!PlayerPrefs.HasKey("hous"))
+        {
+            PlayerPrefs.SetInt("hous", 0);
+        }
+        if (!PlayerPrefs.HasKey("profitHous"))
+        {
+            PlayerPrefs.SetFloat("profitHous", 0);
+        } 
         if (!PlayerPrefs.HasKey("priceHous"))
         {
-            PlayerPrefs.SetFloat("priceHous", _priceHous);
-        } 
+            PlayerPrefs.SetFloat("priceHous", _initialPriceHous);
+        }
+        
+
         if (!PlayerPrefs.HasKey("priceFeeder"))
         {
-            PlayerPrefs.SetFloat("priceFeeder", _priceFeeder);
+            PlayerPrefs.SetFloat("priceFeeder", _initialPriceFeeder);
         } 
         if (!PlayerPrefs.HasKey("priceFence"))
         {
-            PlayerPrefs.SetFloat("priceFence", _priceFence);
+            PlayerPrefs.SetFloat("priceFence", _initialPriceFence);
         } 
         if (!PlayerPrefs.HasKey("priceMaraStatue"))
         {
-            PlayerPrefs.SetFloat("priceMaraStatue", _priceMaraStatue);
+            PlayerPrefs.SetFloat("priceMaraStatue", _initialPriceMaraStatue);
         }
         if (!PlayerPrefs.HasKey("priceGoose"))
         {
-            PlayerPrefs.SetFloat("priceGoose", _priceGoose);
+            PlayerPrefs.SetFloat("priceGoose", _initialPriceGoose);
         }
 
 
@@ -49,10 +59,7 @@ public class DataSave : MonoBehaviour
         {
             PlayerPrefs.SetInt("goose", 1);
         } 
-        if (!PlayerPrefs.HasKey("hous"))
-        {
-            PlayerPrefs.SetInt("hous", 0);
-        }
+ 
         if (!PlayerPrefs.HasKey("autoclick"))
         {
             PlayerPrefs.SetFloat("autoclick", 1);
