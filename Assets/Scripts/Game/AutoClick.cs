@@ -19,6 +19,7 @@ public class AutoClick : MonoBehaviour
     }
     private void Start()
     {
+        RecalAutoClick();
         _timerOut = _timerOutClick;
     }
 
