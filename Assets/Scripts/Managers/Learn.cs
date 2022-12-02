@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class Learn : MonoBehaviour
 {
+    [SerializeField] private AutoClick _autoClick;
+    [SerializeField] private Shop _shop;
     [SerializeField] private GameObject _learnPanel1;
     [SerializeField] private GameObject _learnPanel2;
     [SerializeField] private GameObject _learnPanel2_1;
@@ -127,8 +129,10 @@ public class Learn : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("learn") == 4)
         {
-            PlayerPrefs.SetFloat("egg", PlayerPrefs.GetFloat("egg") - 50);
+            _shop.BuyUpgradeHous();
+      /*      PlayerPrefs.SetFloat("egg", PlayerPrefs.GetFloat("egg") - 50);
             PlayerPrefs.SetInt("hous", 1);
+            _autoClick.RecalAutoClick();*/
         }
         _learnPanel4.SetActive(false);
         _hous.UpgradeHous();
@@ -167,7 +171,8 @@ public class Learn : MonoBehaviour
         if(PlayerPrefs.GetInt("learn") == 6)
         {
             PlayerPrefs.SetFloat("egg", PlayerPrefs.GetFloat("egg") - 15);
-            PlayerPrefs.SetInt("goose", PlayerPrefs.GetInt("goose" + 1));
+            PlayerPrefs.SetInt("goose", PlayerPrefs.GetInt("goose") + 1);
+            _autoClick.RecalAutoClick();
         }       
         _learnPanel6.SetActive(false);
         StartCoroutine(LearnTime7());

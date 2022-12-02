@@ -19,8 +19,8 @@ public class HousDisplayShop : MonoBehaviour
 
     public void Display()
     {
-        _currentLvlText.text = PlayerPrefs.GetInt("hous").ToString("F0");
-        _currentProfitText.text = PlayerPrefs.GetFloat("profitHous").ToString("F2");
+        _currentLvlText.text = (PlayerPrefs.GetInt("hous") + 1).ToString("F0");
+   
         _currentPriceText.text = PlayerPrefs.GetFloat("priceHous").ToString("F2");
     }
 }

@@ -22,20 +22,58 @@ public class DataSave : MonoBehaviour
         {
             PlayerPrefs.SetFloat("priceHous", _initialPriceHous);
         }
-        
+
+
+        if (!PlayerPrefs.HasKey("feeder"))
+        {
+            PlayerPrefs.SetInt("feeder", 0);
+        }
 
         if (!PlayerPrefs.HasKey("priceFeeder"))
         {
             PlayerPrefs.SetFloat("priceFeeder", _initialPriceFeeder);
         } 
+        if (!PlayerPrefs.HasKey("profitFeeder"))
+        {
+            PlayerPrefs.SetFloat("profitFeeder", 0);
+        }
+
+        if (!PlayerPrefs.HasKey("feence"))
+        {
+            PlayerPrefs.SetInt("feence", 0);
+        }
+
         if (!PlayerPrefs.HasKey("priceFence"))
         {
             PlayerPrefs.SetFloat("priceFence", _initialPriceFence);
         } 
+        if (!PlayerPrefs.HasKey("profitFence"))
+        {
+            PlayerPrefs.SetFloat("profitFence", 0);
+        }
+
+
+        if (!PlayerPrefs.HasKey("maraStatue"))
+        {
+            PlayerPrefs.SetInt("maraStatue", 0);
+        }
+
         if (!PlayerPrefs.HasKey("priceMaraStatue"))
         {
             PlayerPrefs.SetFloat("priceMaraStatue", _initialPriceMaraStatue);
+        } 
+        if (!PlayerPrefs.HasKey("profitMaraStatue"))
+        {
+            PlayerPrefs.SetFloat("profitMaraStatue", 0);
         }
+
+
+
+        if (!PlayerPrefs.HasKey("goose"))
+        {
+            PlayerPrefs.SetInt("goose", 1);
+        }
+
         if (!PlayerPrefs.HasKey("priceGoose"))
         {
             PlayerPrefs.SetFloat("priceGoose", _initialPriceGoose);
@@ -55,16 +93,14 @@ public class DataSave : MonoBehaviour
         {
             PlayerPrefs.SetInt("learn", 0);
         }
-        if (!PlayerPrefs.HasKey("goose"))
-        {
-            PlayerPrefs.SetInt("goose", 1);
-        } 
+ 
  
         if (!PlayerPrefs.HasKey("autoclick"))
         {
-            PlayerPrefs.SetFloat("autoclick", 1);
+            PlayerPrefs.SetFloat("autoclick", 0);
         }
     }
+
 
     public void DellKeys()
     {

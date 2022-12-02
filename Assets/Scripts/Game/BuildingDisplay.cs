@@ -8,17 +8,17 @@ public class BuildingDisplay : MonoBehaviour
 
     private void Start()
     {
-        ShowCountGoose(PlayerPrefs.GetInt("goose"));
+        ShowCountGoose();
     }
     private void OnEnable()
     {
-        BuyGoose.coutnGoose += ShowCountGoose;  
+        BuyGoose.buyGoose += ShowCountGoose;  
     }
     private void OnDisable()
     {
-        BuyGoose.coutnGoose -= ShowCountGoose;
+        BuyGoose.buyGoose -= ShowCountGoose;
     }
-    public void ShowCountGoose(int goose)
+    public void ShowCountGoose()
     {
         _countGoose.text = PlayerPrefs.GetInt("goose").ToString("F0");
     }
