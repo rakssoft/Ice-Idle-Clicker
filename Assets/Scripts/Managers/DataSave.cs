@@ -89,6 +89,10 @@ public class DataSave : MonoBehaviour
         {
             PlayerPrefs.SetFloat("egg", 0);
         } 
+        if (!PlayerPrefs.HasKey("fragmentswinter"))
+        {
+            PlayerPrefs.SetFloat("fragmentswinter", 0);
+        } 
         if (!PlayerPrefs.HasKey("learn"))
         {
             PlayerPrefs.SetInt("learn", 0);

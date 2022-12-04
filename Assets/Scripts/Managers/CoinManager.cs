@@ -7,7 +7,8 @@ public class CoinManager : MonoBehaviour
 {
     [HideInInspector] [SerializeField] private Text _eggText;
     [HideInInspector] [SerializeField] private Text _eggAutoCLickText;
-   [SerializeField] private Text _currentCoosekText;
+    [SerializeField] private Text _currentCoosekText;
+    [SerializeField] private Text _fragmentsWinterText;
     private float currenteggs;
 
     private void OnEnable()
@@ -31,6 +32,7 @@ public class CoinManager : MonoBehaviour
         _eggText.text = PlayerPrefs.GetFloat("egg").ToString("F0");
         _eggAutoCLickText.text = PlayerPrefs.GetFloat("autoclick").ToString("F2");
         _currentCoosekText.text = PlayerPrefs.GetInt("goose").ToString();
+        _fragmentsWinterText.text = PlayerPrefs.GetFloat("fragmentswinter").ToString();
     }
 
     /// <summary>

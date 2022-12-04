@@ -15,7 +15,9 @@ public class Learn : MonoBehaviour
     [SerializeField] private GameObject _learnPanel5_1;
     [SerializeField] private GameObject _learnPanel6;
     [SerializeField] private GameObject _learnPanel7;
+    [SerializeField] private GameObject _learnPanel7_1;
     [SerializeField] private GameObject _learnPanel8;
+    [SerializeField] private GameObject _tutorial;
     private Hous _hous;
 
     private void Awake()
@@ -77,7 +79,7 @@ public class Learn : MonoBehaviour
                 }  
             case 9:
                 {
-
+                    Learn9();
                     break;
                 }
             default:
@@ -130,9 +132,6 @@ public class Learn : MonoBehaviour
         if (PlayerPrefs.GetInt("learn") == 4)
         {
             _shop.BuyUpgradeHous();
-      /*      PlayerPrefs.SetFloat("egg", PlayerPrefs.GetFloat("egg") - 50);
-            PlayerPrefs.SetInt("hous", 1);
-            _autoClick.RecalAutoClick();*/
         }
         _learnPanel4.SetActive(false);
         _hous.UpgradeHous();
@@ -147,7 +146,7 @@ public class Learn : MonoBehaviour
     /// <returns></returns>
     IEnumerator LearnTime5()
     {
-        yield return new WaitForSeconds(15);
+        yield return new WaitForSeconds(10);
         _learnPanel5_1.SetActive(false);
         _learnPanel5.SetActive(true);
     }
@@ -185,38 +184,44 @@ public class Learn : MonoBehaviour
     IEnumerator LearnTime7()
     {
         _learnPanel7.SetActive(true);
-        yield return new WaitForSeconds(5);
-        _learnPanel7.SetActive(false);
-        yield return new WaitForSeconds(15);
-        Learn8();
-       
+        yield return new WaitForSeconds(3);              
     }
+
+    public void Learn7_1()
+    {
+        if (PlayerPrefs.GetInt("learn") < 9)
+        {
+            if (PlayerPrefs.GetInt("learn") == 7)
+            {
+                if(PlayerPrefs.GetInt("hous") == 2)
+                {
+                    _learnPanel7_1.SetActive(false);
+                    _learnPanel7.SetActive(false);
+                    PlayerPrefs.SetInt("learn", 8);
+                    StartCoroutine(LearnTime8());
+                }
+            
+            }
+           
+        }
+    }
+
 
     public void Learn8()
     {
-        StartCoroutine(LearnTime8());
-
-  
+        PlayerPrefs.SetFloat("fragmentswinter", 100);
     }
 
     IEnumerator LearnTime8()
     {
-        yield return new WaitForSeconds(15);
+        yield return new WaitForSeconds(3);
         _learnPanel8.SetActive(true);
-        PlayerPrefs.SetInt("learn", 8);
-        yield return new WaitForSeconds(6);
-        Learn9();
     }
     public void Learn9()
     {
         _learnPanel8.SetActive(false);
-    //    StartCoroutine(LearnTime9());
+        _tutorial.SetActive(false);
         PlayerPrefs.SetInt("learn", 9);
-/*        IEnumerator LearnTime9()
-        {
-            yield return new WaitForSeconds(15);
-            _learnPanel8.SetActive(true);
-        }*/
     }
 
     
