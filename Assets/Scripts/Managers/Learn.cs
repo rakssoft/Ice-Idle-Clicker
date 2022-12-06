@@ -92,8 +92,10 @@ public class Learn : MonoBehaviour
     /// </summary>
     private void Learn1()
     {
+        SpeakGoose();
         _learnPanel1.SetActive(true);
         PlayerPrefs.SetInt("learn", 1);
+  
     }
 
     /// <summary>
@@ -101,9 +103,23 @@ public class Learn : MonoBehaviour
     /// </summary>
     private void Learn2()
     {
+     
         _learnPanel1.SetActive(false);
         _learnPanel2.SetActive(true);
         PlayerPrefs.SetInt("learn", 2);
+      
+    }
+
+    public void IdleGoose()
+    {
+        int IdleRandom = Random.Range(1, 4);
+
+        Events.AnimGoose?.Invoke("idle" + IdleRandom, true);
+    }
+    public void SpeakGoose()
+    {
+        int IdleRandom = Random.Range(1, 3);
+        Events.AnimGoose?.Invoke("speak" + IdleRandom, false);
     }
     /// <summary>
     /// нажми купить авто сбор
@@ -113,6 +129,7 @@ public class Learn : MonoBehaviour
         _learnPanel2.SetActive(false);
         _learnPanel3.SetActive(true);
         PlayerPrefs.SetInt("learn", 3);
+
     }
     /// <summary>
     /// экран покупки автосбора - дома
@@ -235,7 +252,7 @@ public class Learn : MonoBehaviour
         {
             _learnPanel2_1.SetActive(false);
         }
-        else if (PlayerPrefs.GetFloat("egg") == 50 && PlayerPrefs.GetInt("learn") == 2)
+        else if (PlayerPrefs.GetFloat("egg") >= 50 && PlayerPrefs.GetInt("learn") == 2)
         {
             Learn3();
         }

@@ -38,6 +38,10 @@ public class InputPlayer : MonoBehaviour
                 {
                     click?.Invoke(1);
                     //   _coinManager.RecalEggs(1);
+                } 
+                if (hit.collider.gameObject.TryGetComponent(out Goose goose))
+                {
+                 
                 }
             }
         }

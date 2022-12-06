@@ -10,6 +10,8 @@ public class DataSave : MonoBehaviour
 
     private void Awake()
     {
+        PlayerPrefs.DeleteAll();
+
         if (!PlayerPrefs.HasKey("hous"))
         {
             PlayerPrefs.SetInt("hous", 0);
@@ -38,9 +40,9 @@ public class DataSave : MonoBehaviour
             PlayerPrefs.SetFloat("profitFeeder", 0);
         }
 
-        if (!PlayerPrefs.HasKey("feence"))
+        if (!PlayerPrefs.HasKey("fence"))
         {
-            PlayerPrefs.SetInt("feence", 0);
+            PlayerPrefs.SetInt("fence", 0);
         }
 
         if (!PlayerPrefs.HasKey("priceFence"))
@@ -55,7 +57,7 @@ public class DataSave : MonoBehaviour
 
         if (!PlayerPrefs.HasKey("maraStatue"))
         {
-            PlayerPrefs.SetInt("maraStatue", 0);
+            PlayerPrefs.SetInt("maraStatue", 1);
         }
 
         if (!PlayerPrefs.HasKey("priceMaraStatue"))

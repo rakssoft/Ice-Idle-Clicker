@@ -5,7 +5,7 @@ public class AutoClick : MonoBehaviour
 {
     
     [SerializeField] private float _timerOutClick;
-    private float _timerOut;
+    [SerializeField] private float _timerOut;
     private float _autoClick;
     public static UnityAction<float> autoclick;
 

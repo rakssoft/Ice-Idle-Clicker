@@ -9,8 +9,15 @@ public class Shop : MonoBehaviour
     [HideInInspector] [SerializeField] private Hous _hous;
     [SerializeField] private AutoClick _autoClick;
     [SerializeField] private HousDisplayShop _housDisplayShop;
+    [SerializeField] private Text _currentEgg, _currentEgg2;
     [SerializeField] private float _multiplyPriceBuildings;
     [SerializeField] private float _multiplyIncomeBuildings;
+    [SerializeField] private Feeder _feeder;
+    [SerializeField] private FeederDisplayShop _feederDisplayShop; 
+    [SerializeField] private MaraStatue _morana;
+    [SerializeField] private MaraStatueDisplayShop _moraDisplayShop;
+    [SerializeField] private Fence _fence;
+    [SerializeField] private FenceDisplayShop _fenceDisplayShop;
 
 
 
@@ -20,13 +27,17 @@ public class Shop : MonoBehaviour
     {
         UpgradeHous();
     }
+
+    private void Update()  // заменить
+    {
+        _currentEgg.text = PlayerPrefs.GetFloat("egg").ToString("F0"); 
+        _currentEgg2.text = PlayerPrefs.GetFloat("egg").ToString("F0"); 
+    }
     public void UpgradeHous()
     {
         _hous.UpgradeHous();
         _housDisplayShop.Display();
-
     }
-
     /// <summary>
     /// Стоимость дома настраивается в DataSave и здесь также идет настройка и умножение
     /// цены за апгрейд дома и умножается его автоклик (он суммируется)
@@ -78,6 +89,189 @@ public class Shop : MonoBehaviour
             _multiplyIncomeBuildings = 0.8f;
         } 
         else if ((PlayerPrefs.GetInt("hous") >= 15))
+        {
+            _multiplyIncomeBuildings = 0.9f;
+        }
+        return _multiplyIncomeBuildings;
+    }
+
+    /// <summary>
+    /// Для увеличения стоимости от базовой  50 или 500 нужо изменить значение V  и туда вписать значение базовой стоимости совместить с дата сйев
+    /// </summary>
+    public void BuyUpgradeFeeder()
+    {                                    
+        if (PlayerPrefs.GetFloat("egg") >= PlayerPrefs.GetFloat("priceFeeder"))
+        {
+            PlayerPrefs.SetFloat("egg", PlayerPrefs.GetFloat("egg") - PlayerPrefs.GetFloat("priceFeeder"));
+            PlayerPrefs.SetInt("feeder", PlayerPrefs.GetInt("feeder") + 1);
+            _multiplyIncomeBuildings = RecalMultiplyFeeder();
+            PlayerPrefs.SetFloat("profitFeeder", _multiplyIncomeBuildings);
+            _autoClick.RecalAutoClick();
+            double v = 50 * Math.Pow(_multiplyPriceBuildings, PlayerPrefs.GetInt("feeder") + 1);
+            float price = (float)v;
+            PlayerPrefs.SetFloat("priceFeeder", price);
+            UpgradeFeeder();
+        }
+    }
+
+    public void UpgradeFeeder()
+    {
+        _feeder.UpgradeFeeder();
+        _feederDisplayShop.Display();
+    }
+
+    private float RecalMultiplyFeeder()
+    {
+        if (PlayerPrefs.GetInt("feeder") <= 1)
+        {
+            _multiplyIncomeBuildings = 0;
+        }
+        else if (PlayerPrefs.GetInt("feeder") == 2)
+        {
+            _multiplyIncomeBuildings = 0.3f;
+        }
+        else if ((PlayerPrefs.GetInt("feeder") > 2) && (PlayerPrefs.GetInt("feeder") < 6))
+        {
+            _multiplyIncomeBuildings = 0.4f;
+        }
+        else if ((PlayerPrefs.GetInt("feeder") >= 6) && (PlayerPrefs.GetInt("feeder") < 9))
+        {
+            _multiplyIncomeBuildings = 0.5f;
+        }
+        else if ((PlayerPrefs.GetInt("feeder") >= 9) && (PlayerPrefs.GetInt("feeder") < 12))
+        {
+            _multiplyIncomeBuildings = 0.6f;
+        }
+        else if ((PlayerPrefs.GetInt("feeder") >= 12) && (PlayerPrefs.GetInt("feeder") < 13))
+        {
+            _multiplyIncomeBuildings = 0.7f;
+        }
+        else if ((PlayerPrefs.GetInt("feeder") >= 13) && (PlayerPrefs.GetInt("feeder") < 15))
+        {
+            _multiplyIncomeBuildings = 0.8f;
+        }
+        else if ((PlayerPrefs.GetInt("feeder") >= 15))
+        {
+            _multiplyIncomeBuildings = 0.9f;
+        }
+        return _multiplyIncomeBuildings;
+    }
+
+    public void BuyUpgradeMorana()
+    {
+        if (PlayerPrefs.GetFloat("egg") >= PlayerPrefs.GetFloat("priceMaraStatue"))
+        {
+            PlayerPrefs.SetFloat("egg", PlayerPrefs.GetFloat("egg") - PlayerPrefs.GetFloat("priceMaraStatue"));
+            PlayerPrefs.SetInt("maraStatue", PlayerPrefs.GetInt("maraStatue") + 1);
+            _multiplyIncomeBuildings = RecalMultiplyMarana();
+            PlayerPrefs.SetFloat("profitMaraStatue", _multiplyIncomeBuildings);
+            _autoClick.RecalAutoClick();
+            double v = 50 * Math.Pow(_multiplyPriceBuildings, PlayerPrefs.GetInt("maraStatue") + 1);
+            float price = (float)v;
+            PlayerPrefs.SetFloat("priceMaraStatue", price);
+            UpgradeMarana();
+        }
+    }
+
+    public void UpgradeMarana()
+    {
+        _morana.UpgradeMara();
+        _moraDisplayShop.Display();
+    }
+
+    private float RecalMultiplyMarana()
+    {
+        string Mara = "maraStatue";
+        if (PlayerPrefs.GetInt(Mara) <= 1)
+        {
+            _multiplyIncomeBuildings = 0;
+        }
+        else if (PlayerPrefs.GetInt(Mara) == 2)
+        {
+            _multiplyIncomeBuildings = 0.3f;
+        }
+        else if ((PlayerPrefs.GetInt(Mara) > 2) && (PlayerPrefs.GetInt(Mara) < 6))
+        {
+            _multiplyIncomeBuildings = 0.4f;
+        }
+        else if ((PlayerPrefs.GetInt(Mara) >= 6) && (PlayerPrefs.GetInt(Mara) < 9))
+        {
+            _multiplyIncomeBuildings = 0.5f;
+        }
+        else if ((PlayerPrefs.GetInt(Mara) >= 9) && (PlayerPrefs.GetInt(Mara) < 12))
+        {
+            _multiplyIncomeBuildings = 0.6f;
+        }
+        else if ((PlayerPrefs.GetInt(Mara) >= 12) && (PlayerPrefs.GetInt(Mara) < 13))
+        {
+            _multiplyIncomeBuildings = 0.7f;
+        }
+        else if ((PlayerPrefs.GetInt(Mara) >= 13) && (PlayerPrefs.GetInt(Mara) < 15))
+        {
+            _multiplyIncomeBuildings = 0.8f;
+        }
+        else if ((PlayerPrefs.GetInt(Mara) >= 15))
+        {
+            _multiplyIncomeBuildings = 0.9f;
+        }
+        return _multiplyIncomeBuildings;
+    }
+
+
+    public void BuyUpgradeFence()
+    {
+        if (PlayerPrefs.GetFloat("egg") >= PlayerPrefs.GetFloat("priceFence"))
+        {
+            PlayerPrefs.SetFloat("egg", PlayerPrefs.GetFloat("egg") - PlayerPrefs.GetFloat("priceFence"));
+            PlayerPrefs.SetInt("fence", PlayerPrefs.GetInt("fence") + 1);
+            _multiplyIncomeBuildings = RecalMultiplyFence();
+            PlayerPrefs.SetFloat("profitFence", _multiplyIncomeBuildings);
+            _autoClick.RecalAutoClick();
+            double v = 50 * Math.Pow(_multiplyPriceBuildings, PlayerPrefs.GetInt("fence") + 1);
+            float price = (float)v;
+            PlayerPrefs.SetFloat("priceFence", price);
+            UpgradeFence();
+        }
+    }
+
+    public void UpgradeFence()
+    {
+        _fence.UpgradeFence();
+        _fenceDisplayShop.Display();
+    }
+
+    private float RecalMultiplyFence()
+    {
+        string fence = "fence";
+        if (PlayerPrefs.GetInt(fence) <= 1)
+        {
+            _multiplyIncomeBuildings = 0;
+        }
+        else if (PlayerPrefs.GetInt(fence) == 2)
+        {
+            _multiplyIncomeBuildings = 0.3f;
+        }
+        else if ((PlayerPrefs.GetInt(fence) > 2) && (PlayerPrefs.GetInt(fence) < 6))
+        {
+            _multiplyIncomeBuildings = 0.4f;
+        }
+        else if ((PlayerPrefs.GetInt(fence) >= 6) && (PlayerPrefs.GetInt(fence) < 9))
+        {
+            _multiplyIncomeBuildings = 0.5f;
+        }
+        else if ((PlayerPrefs.GetInt(fence) >= 9) && (PlayerPrefs.GetInt(fence) < 12))
+        {
+            _multiplyIncomeBuildings = 0.6f;
+        }
+        else if ((PlayerPrefs.GetInt(fence) >= 12) && (PlayerPrefs.GetInt(fence) < 13))
+        {
+            _multiplyIncomeBuildings = 0.7f;
+        }
+        else if ((PlayerPrefs.GetInt(fence) >= 13) && (PlayerPrefs.GetInt(fence) < 15))
+        {
+            _multiplyIncomeBuildings = 0.8f;
+        }
+        else if ((PlayerPrefs.GetInt(fence) >= 15))
         {
             _multiplyIncomeBuildings = 0.9f;
         }

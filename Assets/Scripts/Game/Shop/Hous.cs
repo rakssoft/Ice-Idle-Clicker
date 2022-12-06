@@ -2,13 +2,14 @@ using UnityEngine;
 
 public class Hous : MonoBehaviour
 {
-    [HideInInspector] [SerializeField] private GameObject _housVer1, _housVer2, _housVer3;
+   [SerializeField] private GameObject _housVer1, _housVer2, _housVer3, _housVer4;
     [HideInInspector] [SerializeField] private GameObject _goose;
     private void Start()
     {
         _housVer1.SetActive(false);
         _housVer2.SetActive(false);
         _housVer3.SetActive(false);
+        _housVer4.SetActive(false);
         _goose.SetActive(true);
 
        int updateHouse = PlayerPrefs.GetInt("hous");
@@ -29,6 +30,7 @@ public class Hous : MonoBehaviour
                     _housVer1.SetActive(false);
                     _housVer2.SetActive(false);
                     _housVer3.SetActive(false);
+                    _housVer4.SetActive(false);
                     _goose.SetActive(true);
                     break;
                 }
@@ -37,6 +39,7 @@ public class Hous : MonoBehaviour
                     _housVer1.SetActive(true);
                     _housVer2.SetActive(false);
                     _housVer3.SetActive(false);
+                    _housVer4.SetActive(false);
                     _goose.SetActive(false);
                     break;
                 }
@@ -45,17 +48,29 @@ public class Hous : MonoBehaviour
                     _housVer1.SetActive(false);
                     _housVer2.SetActive(true);
                     _housVer3.SetActive(false);
+                    _housVer4.SetActive(false);
                     _goose.SetActive(false);
                     break;
                 } 
-            default:
+            case 6:
                 {
                     _housVer1.SetActive(false);
                     _housVer2.SetActive(false);
                     _housVer3.SetActive(true);
+                    _housVer4.SetActive(false);
                     _goose.SetActive(false);
                     break;
-                }       
+                } 
+            case 10:
+                {
+                    _housVer1.SetActive(false);
+                    _housVer2.SetActive(false);
+                    _housVer3.SetActive(false);
+                    _housVer4.SetActive(true);
+                    _goose.SetActive(false);
+                    break;
+                } 
+     
         }
     }
 
