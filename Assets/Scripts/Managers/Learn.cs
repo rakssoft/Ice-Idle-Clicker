@@ -18,6 +18,7 @@ public class Learn : MonoBehaviour
     [SerializeField] private GameObject _learnPanel7_1;
     [SerializeField] private GameObject _learnPanel8;
     [SerializeField] private GameObject _tutorial;
+    [SerializeField] private GameObject _helperQuest;
     private Hous _hous;
 
     private void Awake()
@@ -239,6 +240,7 @@ public class Learn : MonoBehaviour
         _learnPanel8.SetActive(false);
         _tutorial.SetActive(false);
         PlayerPrefs.SetInt("learn", 9);
+        
     }
 
     
@@ -256,5 +258,16 @@ public class Learn : MonoBehaviour
         {
             Learn3();
         }
+
+        if(PlayerPrefs.GetInt("quest") == 0 && PlayerPrefs.GetFloat("egg") >= 500)
+        {
+            _helperQuest.SetActive(true);
+        }
+    }
+
+
+    public void CloseHelperQuest()
+    {
+        _helperQuest.SetActive(false);
     }
 }

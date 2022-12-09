@@ -3,9 +3,10 @@ using UnityEngine;
 
 public class MaraStatue : MonoBehaviour
 {
-    [SerializeField] private GameObject _maraVer1, _maraVer2, _maraVer3;
+    [SerializeField] private GameObject _maraVer0, _maraVer1, _maraVer2, _maraVer3;
     private void Start()
     {
+        _maraVer0.SetActive(false);
         _maraVer1.SetActive(false);
         _maraVer2.SetActive(false);
         _maraVer3.SetActive(false);
@@ -26,6 +27,7 @@ public class MaraStatue : MonoBehaviour
         {
             case 0:
                 {
+                    _maraVer0.SetActive(true);
                     _maraVer1.SetActive(false);
                     _maraVer2.SetActive(false);
                     _maraVer3.SetActive(false);
@@ -33,6 +35,7 @@ public class MaraStatue : MonoBehaviour
                 }
             case 1:
                 {
+                    _maraVer0.SetActive(false);
                     _maraVer1.SetActive(true);
                     _maraVer2.SetActive(false);
                     _maraVer3.SetActive(false);
@@ -40,6 +43,7 @@ public class MaraStatue : MonoBehaviour
                 }
             case 6:
                 {
+                    _maraVer0.SetActive(false);
                     _maraVer1.SetActive(false);
                     _maraVer2.SetActive(true);
                     _maraVer3.SetActive(false);
@@ -47,6 +51,7 @@ public class MaraStatue : MonoBehaviour
                 }
             case 10:
                 {
+                    _maraVer0.SetActive(false);
                     _maraVer1.SetActive(false);
                     _maraVer2.SetActive(false);
                     _maraVer3.SetActive(true);

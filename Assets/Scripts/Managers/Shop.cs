@@ -51,7 +51,7 @@ public class Shop : MonoBehaviour
             _multiplyIncomeBuildings = RecalMultiplyHous();
             PlayerPrefs.SetFloat("profitHous", _multiplyIncomeBuildings);
             _autoClick.RecalAutoClick();
-            double v = 50 * Math.Pow(_multiplyPriceBuildings, PlayerPrefs.GetInt("hous") + 1);
+            double v = 70 * Math.Pow(_multiplyPriceBuildings, PlayerPrefs.GetInt("hous") + 1);
             float price = (float)v;           
             PlayerPrefs.SetFloat("priceHous", price);
             UpgradeHous();
@@ -80,17 +80,14 @@ public class Shop : MonoBehaviour
         {
             _multiplyIncomeBuildings = 0.6f;
         }
-        else if ((PlayerPrefs.GetInt("hous") >= 12) && (PlayerPrefs.GetInt("hous") < 13))
+        else if ((PlayerPrefs.GetInt("hous") >= 12) && (PlayerPrefs.GetInt("hous") < 14))
         {
             _multiplyIncomeBuildings = 0.7f;
         }  
-        else if ((PlayerPrefs.GetInt("hous") >= 13) && (PlayerPrefs.GetInt("hous") < 15))
+
+        else if ((PlayerPrefs.GetInt("hous") >= 14))
         {
             _multiplyIncomeBuildings = 0.8f;
-        } 
-        else if ((PlayerPrefs.GetInt("hous") >= 15))
-        {
-            _multiplyIncomeBuildings = 0.9f;
         }
         return _multiplyIncomeBuildings;
     }
@@ -107,7 +104,7 @@ public class Shop : MonoBehaviour
             _multiplyIncomeBuildings = RecalMultiplyFeeder();
             PlayerPrefs.SetFloat("profitFeeder", _multiplyIncomeBuildings);
             _autoClick.RecalAutoClick();
-            double v = 50 * Math.Pow(_multiplyPriceBuildings, PlayerPrefs.GetInt("feeder") + 1);
+            double v = 500 * Math.Pow(_multiplyPriceBuildings, PlayerPrefs.GetInt("feeder") + 1);
             float price = (float)v;
             PlayerPrefs.SetFloat("priceFeeder", price);
             UpgradeFeeder();
@@ -142,17 +139,13 @@ public class Shop : MonoBehaviour
         {
             _multiplyIncomeBuildings = 0.6f;
         }
-        else if ((PlayerPrefs.GetInt("feeder") >= 12) && (PlayerPrefs.GetInt("feeder") < 13))
+        else if ((PlayerPrefs.GetInt("feeder") >= 12) && (PlayerPrefs.GetInt("feeder") < 14))
         {
             _multiplyIncomeBuildings = 0.7f;
         }
-        else if ((PlayerPrefs.GetInt("feeder") >= 13) && (PlayerPrefs.GetInt("feeder") < 15))
+        else if ((PlayerPrefs.GetInt("feeder") >= 14))
         {
             _multiplyIncomeBuildings = 0.8f;
-        }
-        else if ((PlayerPrefs.GetInt("feeder") >= 15))
-        {
-            _multiplyIncomeBuildings = 0.9f;
         }
         return _multiplyIncomeBuildings;
     }
@@ -227,7 +220,7 @@ public class Shop : MonoBehaviour
             _multiplyIncomeBuildings = RecalMultiplyFence();
             PlayerPrefs.SetFloat("profitFence", _multiplyIncomeBuildings);
             _autoClick.RecalAutoClick();
-            double v = 50 * Math.Pow(_multiplyPriceBuildings, PlayerPrefs.GetInt("fence") + 1);
+            double v = 3000 * Math.Pow(_multiplyPriceBuildings, PlayerPrefs.GetInt("fence") + 1);
             float price = (float)v;
             PlayerPrefs.SetFloat("priceFence", price);
             UpgradeFence();
@@ -263,17 +256,13 @@ public class Shop : MonoBehaviour
         {
             _multiplyIncomeBuildings = 0.6f;
         }
-        else if ((PlayerPrefs.GetInt(fence) >= 12) && (PlayerPrefs.GetInt(fence) < 13))
+        else if ((PlayerPrefs.GetInt(fence) >= 12) && (PlayerPrefs.GetInt(fence) < 14))
         {
             _multiplyIncomeBuildings = 0.7f;
         }
-        else if ((PlayerPrefs.GetInt(fence) >= 13) && (PlayerPrefs.GetInt(fence) < 15))
+        else if ((PlayerPrefs.GetInt(fence) >= 14))
         {
             _multiplyIncomeBuildings = 0.8f;
-        }
-        else if ((PlayerPrefs.GetInt(fence) >= 15))
-        {
-            _multiplyIncomeBuildings = 0.9f;
         }
         return _multiplyIncomeBuildings;
     }

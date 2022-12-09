@@ -57,7 +57,7 @@ public class DataSave : MonoBehaviour
 
         if (!PlayerPrefs.HasKey("maraStatue"))
         {
-            PlayerPrefs.SetInt("maraStatue", 1);
+            PlayerPrefs.SetInt("maraStatue", 0);
         }
 
         if (!PlayerPrefs.HasKey("priceMaraStatue"))
@@ -66,7 +66,7 @@ public class DataSave : MonoBehaviour
         } 
         if (!PlayerPrefs.HasKey("profitMaraStatue"))
         {
-            PlayerPrefs.SetFloat("profitMaraStatue", 0);
+            PlayerPrefs.SetFloat("profitMaraStatue", 1);
         }
 
 
@@ -104,6 +104,10 @@ public class DataSave : MonoBehaviour
         if (!PlayerPrefs.HasKey("autoclick"))
         {
             PlayerPrefs.SetFloat("autoclick", 0);
+        }
+        if (!PlayerPrefs.HasKey("quest"))
+        {
+            PlayerPrefs.SetFloat("quest", 0);
         }
     }
 

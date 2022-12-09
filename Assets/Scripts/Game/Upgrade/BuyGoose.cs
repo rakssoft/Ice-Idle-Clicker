@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using System;
 
 public class BuyGoose : MonoBehaviour
 {
@@ -12,7 +13,10 @@ public class BuyGoose : MonoBehaviour
         {
             PlayerPrefs.SetFloat("egg", PlayerPrefs.GetFloat("egg") - PlayerPrefs.GetFloat("priceGoose"));
             PlayerPrefs.SetInt("goose", PlayerPrefs.GetInt("goose") + 1);
-            PlayerPrefs.SetFloat("priceGoose", PlayerPrefs.GetFloat("priceGoose") * _multiplyPriceGoose);
+            double v = 50 * Math.Pow(_multiplyPriceGoose, PlayerPrefs.GetInt("goose") + 1);
+            float price = (float)v;
+            PlayerPrefs.SetFloat("priceGoose", price);
+       //     PlayerPrefs.SetFloat("priceGoose", PlayerPrefs.GetFloat("priceGoose") * _multiplyPriceGoose);
             buyGoose?.Invoke();
         }
     }
