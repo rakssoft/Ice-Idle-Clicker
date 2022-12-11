@@ -7,6 +7,10 @@ public class CoinManager : MonoBehaviour
 {
     [HideInInspector] [SerializeField] private Text _eggText;
     [HideInInspector] [SerializeField] private Text _eggAutoCLickText;
+    [SerializeField] private EggText _eggCoinsPrefab;
+    [SerializeField] private GameObject[] _spawnEggCoins;
+    [SerializeField] private Transform _transformEggCoins;
+    [SerializeField] private Shop _shop;
     [SerializeField] private Text _currentCoosekText;
     [SerializeField] private Text _fragmentsWinterText;
     private float currenteggs;
@@ -15,12 +19,16 @@ public class CoinManager : MonoBehaviour
     {
         AutoClick.autoclick += RecalEggs;
         InputPlayer.click += RecalEggs;
+        Events.ClickHous += RecalEggs;
+        Events.ClickHous += SpawnEggCoins;
     }
 
     private void OnDisable()
     {
         AutoClick.autoclick -= RecalEggs;
         InputPlayer.click -= RecalEggs;
+        Events.ClickHous -= RecalEggs;
+        Events.ClickHous -= SpawnEggCoins;
     }
     private void Start()
     {
@@ -43,7 +51,21 @@ public class CoinManager : MonoBehaviour
     {
         currenteggs = click;
         PlayerPrefs.SetFloat("egg", PlayerPrefs.GetFloat("egg") + currenteggs);
+        _shop.CanBuy();
         ShowNumberEggs();
+    }
+
+    private void SpawnEggCoins(float click)
+    {
+        int random = RandomSpawnEgg();
+        EggText eggText = Instantiate(_eggCoinsPrefab, _spawnEggCoins[random].transform.position, Quaternion.identity, _transformEggCoins);
+        eggText._eggCurrent = click;        
+    }
+
+    private int RandomSpawnEgg()
+    {
+        int RandomSpawn = Random.Range(0, _spawnEggCoins.Length);
+        return RandomSpawn;
     }
 
 

@@ -24,8 +24,11 @@ MonoBehaviour:
     multiplyMaterials: []
     screenMaterials: []
   skeletonDataModifiers: []
-  fromAnimation: []
-  toAnimation: []
-  duration: []
-  defaultMix: 0.2
+  fromAnimation:
+  - egg_goose_madam
+  toAnimation:
+  - idle_goose_madam
+  duration:
+  - 1
+  defaultMix: 1
   controller: {fileID: 0}

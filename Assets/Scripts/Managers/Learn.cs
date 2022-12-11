@@ -4,22 +4,27 @@ using UnityEngine.UI;
 
 public class Learn : MonoBehaviour
 {
+    [SerializeField] private Text _curentEggTextLearn;
+    [SerializeField] private Hous _hous;
+    [SerializeField] private Quests _quests;
     [SerializeField] private AutoClick _autoClick;
     [SerializeField] private Shop _shop;
     [SerializeField] private GameObject _learnPanel1;
     [SerializeField] private GameObject _learnPanel2;
-    [SerializeField] private GameObject _learnPanel2_1;
     [SerializeField] private GameObject _learnPanel3;
     [SerializeField] private GameObject _learnPanel4;
     [SerializeField] private GameObject _learnPanel5;
-    [SerializeField] private GameObject _learnPanel5_1;
     [SerializeField] private GameObject _learnPanel6;
     [SerializeField] private GameObject _learnPanel7;
-    [SerializeField] private GameObject _learnPanel7_1;
     [SerializeField] private GameObject _learnPanel8;
     [SerializeField] private GameObject _tutorial;
     [SerializeField] private GameObject _helperQuest;
-    private Hous _hous;
+    [SerializeField] private GameObject _footer;
+    [SerializeField] private GameObject _header;
+    [SerializeField] private GameObject _gooseMadam;
+    [SerializeField] private GameObject _helperGooseMadam;
+    [SerializeField] private GameObject _backgroundTotorail;
+
 
     private void Awake()
     {
@@ -75,12 +80,12 @@ public class Learn : MonoBehaviour
                 }  
             case 8:
                 {
-                    Learn9();
+                 //   Learn9();
                     break;
                 }  
             case 9:
                 {
-                    Learn9();
+                //    Learn9();
                     break;
                 }
             default:
@@ -95,6 +100,8 @@ public class Learn : MonoBehaviour
     {
         SpeakGoose();
         _learnPanel1.SetActive(true);
+        _footer.SetActive(false);
+        _header.SetActive(false);
         PlayerPrefs.SetInt("learn", 1);
   
     }
@@ -102,104 +109,110 @@ public class Learn : MonoBehaviour
     /// <summary>
     ///  Нажимай на гусыню
     /// </summary>
-    private void Learn2()
-    {
-     
+    public void Learn2()
+    {     
         _learnPanel1.SetActive(false);
         _learnPanel2.SetActive(true);
-        PlayerPrefs.SetInt("learn", 2);
-      
+        _gooseMadam.SetActive(true);
+        PlayerPrefs.SetInt("learn", 2);      
     }
 
-    public void IdleGoose()
+    public void Learn3()
     {
-        int IdleRandom = Random.Range(1, 4);
+        PlayerPrefs.SetInt("learn", 3);
+        _learnPanel2.SetActive(false);
+        _learnPanel3.SetActive(true);
+        _gooseMadam.SetActive(true);
+        _footer.SetActive(true);
+        _header.SetActive(true);
+        _helperGooseMadam.SetActive(true);
+    }
 
-        Events.AnimGoose?.Invoke("idle" + IdleRandom, true);
-    }
-    public void SpeakGoose()
-    {
-        int IdleRandom = Random.Range(1, 3);
-        Events.AnimGoose?.Invoke("speak" + IdleRandom, false);
-    }
     /// <summary>
     /// нажми купить авто сбор
     /// </summary>
-    private void Learn3()
-    {
-        _learnPanel2.SetActive(false);
-        _learnPanel3.SetActive(true);
-        PlayerPrefs.SetInt("learn", 3);
-
-    }
-    /// <summary>
-    /// экран покупки автосбора - дома
-    /// </summary>
     private void Learn4()
     {
+        PlayerPrefs.SetInt("learn", 4);
         _learnPanel3.SetActive(false);
         _learnPanel4.SetActive(true);
-        PlayerPrefs.SetInt("learn", 4);
+        _gooseMadam.SetActive(true);
+        _footer.SetActive(false);
+        _header.SetActive(false);
+        SpeakGoose();
+
     }
-    /// <summary>
-    /// покупка домика автоклика
-    /// </summary>
 
     public void Learn5()
     {
-        if (PlayerPrefs.GetInt("learn") == 4)
-        {
-            _shop.BuyUpgradeHous();
-        }
-        _learnPanel4.SetActive(false);
-        _hous.UpgradeHous();
         PlayerPrefs.SetInt("learn", 5);
-        _learnPanel5_1.SetActive(true);
-        StartCoroutine(LearnTime5());       
-    }
-
-    /// <summary>
-    /// открывается что пора купить еще гусыню
-    /// </summary>
-    /// <returns></returns>
-    IEnumerator LearnTime5()
-    {
-        yield return new WaitForSeconds(10);
-        _learnPanel5_1.SetActive(false);
+        _learnPanel4.SetActive(false);
         _learnPanel5.SetActive(true);
+        _footer.SetActive(true);
+        _header.SetActive(true);
+        _gooseMadam.SetActive(true);
     }
 
-    /// <summary>
-    /// открывается окно для покупки гусыни.
-    /// </summary>
-    public void Learn6()
+   public void Learn6()
     {
-        _learnPanel5_1.SetActive(false);
-        _learnPanel5.SetActive(false);
         _learnPanel6.SetActive(true);
         PlayerPrefs.SetInt("learn", 6);
+        _learnPanel5.SetActive(false);       
+        _gooseMadam.SetActive(false);
+        StartCoroutine(Learn6_1());
     }
+
+    IEnumerator Learn6_1()
+    {
+        yield return new WaitForSeconds(10);
+        Learn7();
+    }
+
+    public void Learn7()
+    {
+        PlayerPrefs.SetInt("learn", 7);
+        _learnPanel6.SetActive(false);
+        _learnPanel7.SetActive(true);      
+        _backgroundTotorail.SetActive(true);
+        _footer.SetActive(false);
+        _header.SetActive(false);
+        _gooseMadam.SetActive(false);       
+    }  
+    public void Learn8()
+    {
+        PlayerPrefs.SetInt("learn", 8);
+        _learnPanel7.SetActive(false);
+        _learnPanel8.SetActive(true);      
+        _backgroundTotorail.SetActive(false);
+        _footer.SetActive(true);
+        _header.SetActive(true);
+        _gooseMadam.SetActive(false);       
+    }
+
+
+
+
 
     /// <summary>
     /// нажимается кнопка покупки гусыни
     /// </summary>
-    public void Learn7()
+ /*   public void Learn7()
     {
         if(PlayerPrefs.GetInt("learn") == 6)
         {
-            PlayerPrefs.SetFloat("egg", PlayerPrefs.GetFloat("egg") - 15);
+            PlayerPrefs.SetFloat("egg", PlayerPrefs.GetFloat("egg") - 5);
             PlayerPrefs.SetInt("goose", PlayerPrefs.GetInt("goose") + 1);
             _autoClick.RecalAutoClick();
         }       
         _learnPanel6.SetActive(false);
         StartCoroutine(LearnTime7());
         PlayerPrefs.SetInt("learn", 7);
-    }
+    }*/
     /// <summary>
     /// здесь окно что нужно выполнить скорее ее действия.
     /// </summary>
     /// <returns></returns>
-    IEnumerator LearnTime7()
+/*    IEnumerator LearnTime7()
     {
         _learnPanel7.SetActive(true);
         yield return new WaitForSeconds(3);              
@@ -240,34 +253,47 @@ public class Learn : MonoBehaviour
         _learnPanel8.SetActive(false);
         _tutorial.SetActive(false);
         PlayerPrefs.SetInt("learn", 9);
-        
     }
+*/
+  
 
-    
+    public void CloseHelperQuest()
+    {
+        _helperQuest.SetActive(false);
+    }
+    public void SpeakGoose()
+    {
+        int IdleRandom = Random.Range(1, 3);
+        Events.AnimGoose?.Invoke("speak" + IdleRandom, false);
+    }
 
 
     private void Update()
     {
-
-
-        if (PlayerPrefs.GetFloat("egg") == 5 && PlayerPrefs.GetInt("learn") == 2)
+        if (PlayerPrefs.GetFloat("egg") >= 5 && PlayerPrefs.GetFloat("egg") <= 49 && PlayerPrefs.GetInt("learn") == 3)
         {
-            _learnPanel2_1.SetActive(false);
+            _helperGooseMadam.SetActive(false);
         }
-        else if (PlayerPrefs.GetFloat("egg") >= 50 && PlayerPrefs.GetInt("learn") == 2)
+        else if (PlayerPrefs.GetFloat("egg") >= 50 && PlayerPrefs.GetInt("learn") == 3)
         {
-            Learn3();
+            Learn4();
         }
 
         if(PlayerPrefs.GetInt("quest") == 0 && PlayerPrefs.GetFloat("egg") >= 500)
         {
             _helperQuest.SetActive(true);
         }
+        else
+        {
+            _helperQuest.SetActive(false);
+        }
+
+        if (_curentEggTextLearn)
+        {
+            _curentEggTextLearn.text = PlayerPrefs.GetFloat("egg").ToString();
+        }
     }
 
 
-    public void CloseHelperQuest()
-    {
-        _helperQuest.SetActive(false);
-    }
+
 }

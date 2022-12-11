@@ -4,21 +4,21 @@ using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
-    
+
     [HideInInspector] [SerializeField] private Button _maxLevelHous;
-    [HideInInspector] [SerializeField] private Hous _hous;
+    [SerializeField] private Hous _hous;
     [SerializeField] private AutoClick _autoClick;
     [SerializeField] private HousDisplayShop _housDisplayShop;
     [SerializeField] private Text _currentEgg, _currentEgg2;
     [SerializeField] private float _multiplyPriceBuildings;
     [SerializeField] private float _multiplyIncomeBuildings;
     [SerializeField] private Feeder _feeder;
-    [SerializeField] private FeederDisplayShop _feederDisplayShop; 
+    [SerializeField] private FeederDisplayShop _feederDisplayShop;
     [SerializeField] private MaraStatue _morana;
     [SerializeField] private MaraStatueDisplayShop _moraDisplayShop;
     [SerializeField] private Fence _fence;
     [SerializeField] private FenceDisplayShop _fenceDisplayShop;
-
+    [SerializeField] private GameObject _canBuyShop, _canBuyUpgrade;
 
 
 
@@ -30,8 +30,32 @@ public class Shop : MonoBehaviour
 
     private void Update()  // заменить
     {
-        _currentEgg.text = PlayerPrefs.GetFloat("egg").ToString("F0"); 
-        _currentEgg2.text = PlayerPrefs.GetFloat("egg").ToString("F0"); 
+        _currentEgg.text = PlayerPrefs.GetFloat("egg").ToString("F0");
+        _currentEgg2.text = PlayerPrefs.GetFloat("egg").ToString("F0");
+    }
+
+    public void CanBuy()
+    {
+        if (PlayerPrefs.GetFloat("egg") >= PlayerPrefs.GetFloat("priceHous") ||
+            PlayerPrefs.GetFloat("egg") >= PlayerPrefs.GetFloat("priceMaraStatue") ||
+             PlayerPrefs.GetFloat("egg") >= PlayerPrefs.GetFloat("priceFence") ||
+             PlayerPrefs.GetFloat("egg") >= PlayerPrefs.GetFloat("priceFeeder"))
+        {
+            _canBuyShop.SetActive(true);
+        }
+        else
+        {
+            _canBuyShop.SetActive(false);
+        }
+
+        if (PlayerPrefs.GetFloat("egg") >= PlayerPrefs.GetFloat("priceGoose"))
+        {
+            _canBuyUpgrade.SetActive(true);
+        }
+        else
+        {
+            _canBuyUpgrade.SetActive(false);
+        }
     }
     public void UpgradeHous()
     {
@@ -152,9 +176,9 @@ public class Shop : MonoBehaviour
 
     public void BuyUpgradeMorana()
     {
-        if (PlayerPrefs.GetFloat("egg") >= PlayerPrefs.GetFloat("priceMaraStatue"))
+        if (PlayerPrefs.GetFloat("fragmentswinter") >= PlayerPrefs.GetFloat("priceMaraStatue"))
         {
-            PlayerPrefs.SetFloat("egg", PlayerPrefs.GetFloat("egg") - PlayerPrefs.GetFloat("priceMaraStatue"));
+            PlayerPrefs.SetFloat("fragmentswinter", PlayerPrefs.GetFloat("fragmentswinter") - PlayerPrefs.GetFloat("priceMaraStatue"));
             PlayerPrefs.SetInt("maraStatue", PlayerPrefs.GetInt("maraStatue") + 1);
             _multiplyIncomeBuildings = RecalMultiplyMarana();
             PlayerPrefs.SetFloat("profitMaraStatue", _multiplyIncomeBuildings);

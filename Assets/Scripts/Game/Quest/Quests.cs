@@ -9,18 +9,19 @@ public class Quests : MonoBehaviour
     [SerializeField] private GameObject[] _isComplitedText;
     [SerializeField] private GameObject _buttonMaranaQuest;
     private int _idQuest;
+    private int _idComlited;
     private float _timerQuest;
     private bool _beginTimer;
 
     private void OnEnable()
     {
-        Events.QuestComlited += ShowQuest;
+  
         Events.QuestComlited += IsDoneQuest;
         
     }
     private void OnDisable()
     {
-        Events.QuestComlited -= ShowQuest;
+
         Events.QuestComlited -= IsDoneQuest;
     }
     private void Start()
@@ -46,30 +47,32 @@ public class Quests : MonoBehaviour
 
     public void ShowQuest()
     {
-        _idQuest = PlayerPrefs.GetInt("quest");
+        _idQuest = PlayerPrefs.GetInt("quest");      
         for (int i = 0; i < lockImage.Length; i++)
         {
             lockImage[i].SetActive(true);
             if(i < _idQuest)
             {
-                _isComplitedText[i].SetActive(true);
-                 lockImage[i].SetActive(false);
+                lockImage[i].SetActive(false);
                 _questComplitedButton[i].SetActive(false);
-             
+                _isComplitedText[i].SetActive(true);                         
             }
-        }
-        lockImage[_idQuest].SetActive(false);
+        }       
     }
 
     public void IsDoneQuest()
     {
         _beginTimer = true;
+        PlayerPrefs.SetInt("quest", PlayerPrefs.GetInt("quest") + 1);
+        ShowQuest();
     }
 
     public void BeginNewQuest()
     {
+        _buttonMaranaQuest.SetActive(false);
         _beginTimer = false;
-
-           PlayerPrefs.SetInt("quest",  PlayerPrefs.GetInt("quest") + 1);
+        _timerQuest = 30;
+        lockImage[_idQuest].SetActive(false);
+        ShowQuest();
     }
 }

@@ -25,8 +25,7 @@ public class Quest : MonoBehaviour
     public void QuestIsDone()
     {
         PlayerPrefs.SetFloat("egg", PlayerPrefs.GetFloat("egg") - _countEggQuest);
-        PlayerPrefs.SetFloat("fragmentswinter", _incomeQuest * PlayerPrefs.GetFloat("profitMaraStatue"));
-     //   PlayerPrefs.SetInt("quest",  PlayerPrefs.GetInt("quest") + 1);
+        PlayerPrefs.SetFloat("fragmentswinter", PlayerPrefs.GetFloat("fragmentswinter") + _incomeQuest * PlayerPrefs.GetFloat("profitMaraStatue"));
         Events.QuestComlited?.Invoke();
     }
 
