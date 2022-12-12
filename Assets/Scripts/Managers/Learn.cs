@@ -230,6 +230,7 @@ public class Learn : MonoBehaviour
     {
         PlayerPrefs.SetInt("learn", 10);
         _upgradePanel.SetActive(false);
+        _buyLearn8.SetActive(false);
         _learnPanel8.SetActive(false);
         _learnPanel9.SetActive(true);
         _backgroundTotorail.SetActive(true);
