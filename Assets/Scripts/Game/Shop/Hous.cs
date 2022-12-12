@@ -6,6 +6,7 @@ public class Hous : MonoBehaviour
 {
    [SerializeField] private GameObject _housVer;
     [SerializeField] private SkeletonAnimation _homeAnim;
+
     private int idHome;
     // Start is called before the first frame update
     private void OnEnable()
@@ -80,31 +81,34 @@ public class Hous : MonoBehaviour
             case 0:
                 {
                     _housVer.SetActive(false);
-
+              
                     break;
                 }
             case 1:
                 {
                     _housVer.SetActive(true);
-
+                
                     PlayAnim("house_appearance_1", false);
                     break;
                 }
             case 2:
                 {
                     _housVer.SetActive(true);
+             
                     PlayAnim("house_upgrade_1", false);
                     break;
                 } 
             case 6:
                 {
                     _housVer.SetActive(true);
+         
                     PlayAnim("house_upgrade_2", false);
                     break;
                 } 
             case 10:
                 {
                     _housVer.SetActive(true);
+   
                     PlayAnim("house_upgrade_3", false);
                     break;
                 } 

@@ -4,11 +4,14 @@ using UnityEngine.UI;
 
 public class Learn : MonoBehaviour
 {
+
     [SerializeField] private Text _curentEggTextLearn;
     [SerializeField] private Hous _hous;
     [SerializeField] private Quests _quests;
     [SerializeField] private AutoClick _autoClick;
     [SerializeField] private Shop _shop;
+    [SerializeField] private GameObject _shopPanel;
+    [SerializeField] private GameObject _upgradePanel;
     [SerializeField] private GameObject _learnPanel1;
     [SerializeField] private GameObject _learnPanel2;
     [SerializeField] private GameObject _learnPanel3;
@@ -17,6 +20,13 @@ public class Learn : MonoBehaviour
     [SerializeField] private GameObject _learnPanel6;
     [SerializeField] private GameObject _learnPanel7;
     [SerializeField] private GameObject _learnPanel8;
+    [SerializeField] private GameObject _learnPanel9;
+    [SerializeField] private GameObject _learnPanel10;
+    [SerializeField] private GameObject _learnPanel11;
+    [SerializeField] private GameObject _learnPanel12;
+    [SerializeField] private GameObject _learnPanel13;
+    [SerializeField] private GameObject _learnPanel14;
+    [SerializeField] private GameObject _learnPanel15;
     [SerializeField] private GameObject _tutorial;
     [SerializeField] private GameObject _helperQuest;
     [SerializeField] private GameObject _footer;
@@ -24,6 +34,10 @@ public class Learn : MonoBehaviour
     [SerializeField] private GameObject _gooseMadam;
     [SerializeField] private GameObject _helperGooseMadam;
     [SerializeField] private GameObject _backgroundTotorail;
+    [SerializeField] private GameObject _backgroundTotorailMorana;
+    [SerializeField] private GameObject _buyHomeLearn5;
+    [SerializeField] private GameObject _buyLearn8;
+    [SerializeField] private GameObject _clickPanelHous;
 
 
     private void Awake()
@@ -151,6 +165,7 @@ public class Learn : MonoBehaviour
         _footer.SetActive(true);
         _header.SetActive(true);
         _gooseMadam.SetActive(true);
+        _buyHomeLearn5.SetActive(true);
     }
 
    public void Learn6()
@@ -176,7 +191,8 @@ public class Learn : MonoBehaviour
         _backgroundTotorail.SetActive(true);
         _footer.SetActive(false);
         _header.SetActive(false);
-        _gooseMadam.SetActive(false);       
+        _gooseMadam.SetActive(false);
+        _buyHomeLearn5.SetActive(false);
     }  
     public void Learn8()
     {
@@ -189,73 +205,134 @@ public class Learn : MonoBehaviour
         _gooseMadam.SetActive(false);       
     }
 
-
-
-
-
     /// <summary>
     /// нажимается кнопка покупки гусыни
     /// </summary>
- /*   public void Learn7()
-    {
-        if(PlayerPrefs.GetInt("learn") == 6)
-        {
-            PlayerPrefs.SetFloat("egg", PlayerPrefs.GetFloat("egg") - 5);
-            PlayerPrefs.SetInt("goose", PlayerPrefs.GetInt("goose") + 1);
-            _autoClick.RecalAutoClick();
-        }       
-        _learnPanel6.SetActive(false);
-        StartCoroutine(LearnTime7());
-        PlayerPrefs.SetInt("learn", 7);
-    }*/
-    /// <summary>
-    /// здесь окно что нужно выполнить скорее ее действия.
-    /// </summary>
-    /// <returns></returns>
-/*    IEnumerator LearnTime7()
-    {
-        _learnPanel7.SetActive(true);
-        yield return new WaitForSeconds(3);              
-    }
-
-    public void Learn7_1()
-    {
-        if (PlayerPrefs.GetInt("learn") < 9)
-        {
-            if (PlayerPrefs.GetInt("learn") == 7)
-            {
-                if(PlayerPrefs.GetInt("hous") == 2)
-                {
-                    _learnPanel7_1.SetActive(false);
-                    _learnPanel7.SetActive(false);
-                    PlayerPrefs.SetInt("learn", 8);
-                    StartCoroutine(LearnTime8());
-                }
-            
-            }
-           
-        }
-    }
-
-
-    public void Learn8()
-    {
-        PlayerPrefs.SetFloat("fragmentswinter", 100);
-    }
-
-    IEnumerator LearnTime8()
-    {
-        yield return new WaitForSeconds(3);
-        _learnPanel8.SetActive(true);
-    }
     public void Learn9()
     {
-        _learnPanel8.SetActive(false);
-        _tutorial.SetActive(false);
-        PlayerPrefs.SetInt("learn", 9);
+       
+        if(PlayerPrefs.GetInt("goose") >= 2)
+        {
+            PlayerPrefs.SetInt("learn", 9);
+            StartCoroutine(LearnTime10());
+        }
+       
+
     }
-*/
-  
+
+    IEnumerator LearnTime10()
+    {
+        yield return new WaitForSeconds(3);
+        Learn10();
+        
+    }
+    public void Learn10()
+    {
+        PlayerPrefs.SetInt("learn", 10);
+        _upgradePanel.SetActive(false);
+        _learnPanel8.SetActive(false);
+        _learnPanel9.SetActive(true);
+        _backgroundTotorail.SetActive(true);
+        _footer.SetActive(false);
+        _header.SetActive(false);
+
+    } 
+    public void Learn11()
+    {
+        PlayerPrefs.SetInt("learn", 11);
+        _learnPanel9.SetActive(false);
+        _learnPanel10.SetActive(true);
+        _backgroundTotorail.SetActive(false);
+        _footer.SetActive(true);
+        _header.SetActive(true);
+        _buyHomeLearn5.SetActive(false);
+
+    }
+
+    public void Learn12()
+    {
+            PlayerPrefs.SetInt("learn", 12);
+            _shopPanel.SetActive(false);
+            StartCoroutine(LearnTime13());
+        
+    }
+    IEnumerator LearnTime13()
+    {
+        yield return new WaitForSeconds(3);
+        Learn13();
+
+    }
+
+    public void Learn13()
+    {
+        PlayerPrefs.SetInt("learn", 13);
+        _learnPanel10.SetActive(false);
+        _learnPanel11.SetActive(true);
+        _backgroundTotorail.SetActive(true);
+        _footer.SetActive(false);
+        _header.SetActive(false);
+
+    }
+
+    public void Learn14()
+    {
+        PlayerPrefs.SetInt("learn", 14);
+        _learnPanel11.SetActive(false);
+        _learnPanel12.SetActive(true);
+        _backgroundTotorail.SetActive(false);
+        _footer.SetActive(true);
+        _header.SetActive(true);
+        StartCoroutine(LearnTime15());
+
+    }
+    IEnumerator LearnTime15()
+    {
+        yield return new WaitForSeconds(3);
+        Learn15();
+
+    }
+
+    public void Learn15()
+    {
+        PlayerPrefs.SetInt("learn", 15);
+        _learnPanel12.SetActive(false);
+        _learnPanel13.SetActive(true);
+        _backgroundTotorailMorana.SetActive(true);
+        _footer.SetActive(false);
+        _header.SetActive(false);
+
+    } 
+    
+    public void Learn16()
+    {
+        PlayerPrefs.SetInt("learn", 16);
+        _learnPanel13.SetActive(false);
+        _learnPanel14.SetActive(true);
+        _backgroundTotorailMorana.SetActive(false);
+        _footer.SetActive(true);
+        _header.SetActive(true);
+    } 
+    public void Learn17()
+    {
+        PlayerPrefs.SetInt("learn", 17);
+        _learnPanel14.SetActive(false);
+        _learnPanel15.SetActive(true);
+        _backgroundTotorail.SetActive(true);
+        _footer.SetActive(false);
+        _header.SetActive(false);
+    }
+
+    public void OffLearn()
+    {
+        PlayerPrefs.SetInt("learn", 17);
+        _learnPanel15.SetActive(false);
+        _backgroundTotorail.SetActive(false);
+        _footer.SetActive(true);
+        _header.SetActive(true);
+    }
+
+
+
 
     public void CloseHelperQuest()
     {
@@ -267,9 +344,21 @@ public class Learn : MonoBehaviour
         Events.AnimGoose?.Invoke("speak" + IdleRandom, false);
     }
 
+    public void WinterEgg()
+    {
+        PlayerPrefs.SetFloat("fragmentswinter", 100);
+    }
 
     private void Update()
     {
+        if(PlayerPrefs.GetInt("learn") == 17)
+        {
+            _clickPanelHous.SetActive(true);
+        }
+        if (PlayerPrefs.GetInt("hous") == 2 && PlayerPrefs.GetInt("learn") == 11)
+        {
+            Learn12();
+        }
         if (PlayerPrefs.GetFloat("egg") >= 5 && PlayerPrefs.GetFloat("egg") <= 49 && PlayerPrefs.GetInt("learn") == 3)
         {
             _helperGooseMadam.SetActive(false);
