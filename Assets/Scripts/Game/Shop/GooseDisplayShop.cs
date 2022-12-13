@@ -27,6 +27,6 @@ public class GooseDisplayShop : MonoBehaviour
     public void Display()
     {
         _currentCountText.text = (PlayerPrefs.GetInt("goose") ).ToString("F0");
-        _currentPriceText.text = PlayerPrefs.GetFloat("priceGoose").ToString("F2");
+        _currentPriceText.text = PlayerPrefs.GetFloat("priceGoose").ToString("F0");
     }
 }

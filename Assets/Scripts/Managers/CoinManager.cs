@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CoinManager : MonoBehaviour
 {
     [HideInInspector] [SerializeField] private Text _eggText;
+    [SerializeField] private Text _eggTextQuest;
     [HideInInspector] [SerializeField] private Text _eggAutoCLickText;
     [SerializeField] private EggText _eggCoinsPrefab;
     [SerializeField] private GameObject[] _spawnEggCoins;
@@ -13,6 +14,9 @@ public class CoinManager : MonoBehaviour
     [SerializeField] private Shop _shop;
     [SerializeField] private Text _currentCoosekText;
     [SerializeField] private Text _fragmentsWinterText;
+    [SerializeField] private Text _fragmentsWinterTextShop;
+    [SerializeField] private Text _fragmentsWinterTextUpgrade;
+    [SerializeField] private Text _fragmentsWinterTextQuest;
     private float currenteggs;
 
     private void OnEnable()
@@ -38,9 +42,14 @@ public class CoinManager : MonoBehaviour
     private void ShowNumberEggs()
     {
         _eggText.text = PlayerPrefs.GetFloat("egg").ToString("F0");
-        _eggAutoCLickText.text = PlayerPrefs.GetFloat("autoclick").ToString("F2");
+        _eggAutoCLickText.text = PlayerPrefs.GetFloat("autoclick").ToString("F0");
         _currentCoosekText.text = PlayerPrefs.GetInt("goose").ToString();
-        _fragmentsWinterText.text = PlayerPrefs.GetFloat("fragmentswinter").ToString();
+        float WinterFragments = PlayerPrefs.GetFloat("fragmentswinter");
+        _fragmentsWinterText.text = WinterFragments.ToString("F0");
+        _fragmentsWinterTextShop.text = WinterFragments.ToString("F0");
+        _fragmentsWinterTextUpgrade.text = WinterFragments.ToString("F0");
+        _fragmentsWinterTextQuest.text = WinterFragments.ToString("F0");
+        _eggTextQuest.text = PlayerPrefs.GetFloat("egg").ToString("F0");
     }
 
     /// <summary>

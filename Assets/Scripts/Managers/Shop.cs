@@ -183,7 +183,7 @@ public class Shop : MonoBehaviour
             _multiplyIncomeBuildings = RecalMultiplyMarana();
             PlayerPrefs.SetFloat("profitMaraStatue", _multiplyIncomeBuildings);
             _autoClick.RecalAutoClick();
-            double v = 50 * Math.Pow(_multiplyPriceBuildings, PlayerPrefs.GetInt("maraStatue") + 1);
+            double v = 500 * Math.Pow(_multiplyPriceBuildings, PlayerPrefs.GetInt("maraStatue") + 1);
             float price = (float)v;
             PlayerPrefs.SetFloat("priceMaraStatue", price);
             UpgradeMarana();
@@ -199,38 +199,19 @@ public class Shop : MonoBehaviour
     private float RecalMultiplyMarana()
     {
         string Mara = "maraStatue";
-        if (PlayerPrefs.GetInt(Mara) <= 1)
+        if (PlayerPrefs.GetInt(Mara) == 0)
         {
-            _multiplyIncomeBuildings = 0;
+            _multiplyIncomeBuildings = 1;
         }
-        else if (PlayerPrefs.GetInt(Mara) == 2)
+        else if (PlayerPrefs.GetInt(Mara) == 1)
         {
-            _multiplyIncomeBuildings = 0.3f;
+            _multiplyIncomeBuildings = 1.1f;
         }
-        else if ((PlayerPrefs.GetInt(Mara) > 2) && (PlayerPrefs.GetInt(Mara) < 6))
+        else if ((PlayerPrefs.GetInt(Mara) == 2))
         {
-            _multiplyIncomeBuildings = 0.4f;
+            _multiplyIncomeBuildings = 1.2f;
         }
-        else if ((PlayerPrefs.GetInt(Mara) >= 6) && (PlayerPrefs.GetInt(Mara) < 9))
-        {
-            _multiplyIncomeBuildings = 0.5f;
-        }
-        else if ((PlayerPrefs.GetInt(Mara) >= 9) && (PlayerPrefs.GetInt(Mara) < 12))
-        {
-            _multiplyIncomeBuildings = 0.6f;
-        }
-        else if ((PlayerPrefs.GetInt(Mara) >= 12) && (PlayerPrefs.GetInt(Mara) < 13))
-        {
-            _multiplyIncomeBuildings = 0.7f;
-        }
-        else if ((PlayerPrefs.GetInt(Mara) >= 13) && (PlayerPrefs.GetInt(Mara) < 15))
-        {
-            _multiplyIncomeBuildings = 0.8f;
-        }
-        else if ((PlayerPrefs.GetInt(Mara) >= 15))
-        {
-            _multiplyIncomeBuildings = 0.9f;
-        }
+
         return _multiplyIncomeBuildings;
     }
 
@@ -244,7 +225,7 @@ public class Shop : MonoBehaviour
             _multiplyIncomeBuildings = RecalMultiplyFence();
             PlayerPrefs.SetFloat("profitFence", _multiplyIncomeBuildings);
             _autoClick.RecalAutoClick();
-            double v = 3000 * Math.Pow(_multiplyPriceBuildings, PlayerPrefs.GetInt("fence") + 1);
+            double v = 2000 * Math.Pow(_multiplyPriceBuildings, PlayerPrefs.GetInt("fence") + 1);
             float price = (float)v;
             PlayerPrefs.SetFloat("priceFence", price);
             UpgradeFence();

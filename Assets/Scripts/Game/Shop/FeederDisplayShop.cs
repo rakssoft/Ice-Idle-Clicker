@@ -28,6 +28,6 @@ public class FeederDisplayShop : MonoBehaviour
         }
         _currentLvlText.text = (PlayerPrefs.GetInt("feeder") + 1).ToString("F0");
 
-        _currentPriceText.text = PlayerPrefs.GetFloat("priceFeeder").ToString("F2");
+        _currentPriceText.text = PlayerPrefs.GetFloat("priceFeeder").ToString("F0");
     }
 }

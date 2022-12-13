@@ -5,26 +5,20 @@ using UnityEngine.UI;
 
 public class Quest : MonoBehaviour
 {
-    [SerializeField] private int _countEggQuest;
-    [SerializeField] private GameObject _isComplited;
+    [SerializeField] private int _requestQuest;
+    [SerializeField] private GameObject _isComplitedButton;
     [SerializeField] private float _incomeQuest;
 
 
-    private void Update()
+ 
+    public void QuestHomeIsComplited()
     {
-        if(PlayerPrefs.GetFloat("egg") >= _countEggQuest)
-        {
-            _isComplited.SetActive(true);
-        }
-        else
-        {
-            _isComplited.SetActive(false);
-        }
+
     }
 
-    public void QuestIsDone()
+    public void QuestIsDoneMorana()
     {
-        PlayerPrefs.SetFloat("egg", PlayerPrefs.GetFloat("egg") - _countEggQuest);
+        PlayerPrefs.SetFloat("egg", PlayerPrefs.GetFloat("egg") - _requestQuest);
         PlayerPrefs.SetFloat("fragmentswinter", PlayerPrefs.GetFloat("fragmentswinter") + _incomeQuest * PlayerPrefs.GetFloat("profitMaraStatue"));
         Events.QuestComlited?.Invoke();
     }

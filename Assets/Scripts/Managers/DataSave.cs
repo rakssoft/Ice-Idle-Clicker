@@ -109,6 +109,22 @@ public class DataSave : MonoBehaviour
         {
             PlayerPrefs.SetFloat("quest", 0);
         }
+        if (!PlayerPrefs.HasKey("questHome"))
+        {
+            PlayerPrefs.SetInt("questHome", 0);
+        } 
+        if (!PlayerPrefs.HasKey("questFeeder"))
+        {
+            PlayerPrefs.SetInt("questFeeder", 0);
+        } 
+        if (!PlayerPrefs.HasKey("questFence"))
+        {
+            PlayerPrefs.SetInt("questFence", 0);
+        }  
+        if (!PlayerPrefs.HasKey("questGoose"))
+        {
+            PlayerPrefs.SetInt("questGoose", 0);
+        }
     }
 
 
