@@ -9,8 +9,10 @@ public static class Events
     public static UnityAction  AnimHouseClick;
     public static UnityAction  QuestComlited;
     public static UnityAction<int> SoundPlay;
+    public static UnityAction<int> MusicPlay;
     public static UnityAction<float> ClickHous;
-
+    public static UnityAction<float> GameEventsBuff;
+    public static UnityAction<bool> TutorialOff;
 
 
 }

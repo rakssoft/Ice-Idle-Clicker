@@ -125,6 +125,10 @@ public class DataSave : MonoBehaviour
         {
             PlayerPrefs.SetInt("questGoose", 0);
         }
+        if (!PlayerPrefs.HasKey("questMorana"))
+        {
+            PlayerPrefs.SetInt("questMorana", 0);
+        }
     }
 
 

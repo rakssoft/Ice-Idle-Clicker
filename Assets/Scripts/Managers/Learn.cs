@@ -6,8 +6,6 @@ public class Learn : MonoBehaviour
 {
 
     [SerializeField] private Text _curentEggTextLearn;
-    [SerializeField] private Hous _hous;
-    [SerializeField] private Quests _quests;
     [SerializeField] private AutoClick _autoClick;
     [SerializeField] private Shop _shop;
     [SerializeField] private GameObject _shopPanel;
@@ -38,12 +36,6 @@ public class Learn : MonoBehaviour
     [SerializeField] private GameObject _buyHomeLearn5;
     [SerializeField] private GameObject _buyLearn8;
     [SerializeField] private GameObject _clickPanelHous;
-
-
-    private void Awake()
-    {
-        _hous = GetComponent<Hous>();
-    }
 
 
     private void Start()
@@ -330,6 +322,7 @@ public class Learn : MonoBehaviour
         _backgroundTotorail.SetActive(false);
         _footer.SetActive(true);
         _header.SetActive(true);
+        Events.TutorialOff?.Invoke(true);
     }
 
 
@@ -367,15 +360,6 @@ public class Learn : MonoBehaviour
         else if (PlayerPrefs.GetFloat("egg") >= 50 && PlayerPrefs.GetInt("learn") == 3)
         {
             Learn4();
-        }
-
-        if(PlayerPrefs.GetInt("quest") == 0 && PlayerPrefs.GetFloat("egg") >= 500)
-        {
-            _helperQuest.SetActive(true);
-        }
-        else
-        {
-            _helperQuest.SetActive(false);
         }
 
         if (_curentEggTextLearn)
