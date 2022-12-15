@@ -89,7 +89,7 @@ public class DataSave : MonoBehaviour
 
         if (!PlayerPrefs.HasKey("egg"))
         {
-            PlayerPrefs.SetFloat("egg", 0);
+            PlayerPrefs.SetFloat("egg", 10);
         } 
         if (!PlayerPrefs.HasKey("fragmentswinter"))
         {
@@ -129,6 +129,26 @@ public class DataSave : MonoBehaviour
         {
             PlayerPrefs.SetInt("questMorana", 0);
         }
+        
+        if (!PlayerPrefs.HasKey("beads"))
+        {
+            PlayerPrefs.SetInt("beads", 0);
+        }
+        if (!PlayerPrefs.HasKey("caftan"))
+        {
+            PlayerPrefs.SetInt("caftan", 0);
+        } 
+        if (!PlayerPrefs.HasKey("kokoshnik"))
+        {
+            PlayerPrefs.SetInt("kokoshnik", 0);
+        } 
+        if (!PlayerPrefs.HasKey("gooseCap"))
+        {
+            PlayerPrefs.SetInt("gooseCap", 0);
+        }
+
+
+
     }
 
 

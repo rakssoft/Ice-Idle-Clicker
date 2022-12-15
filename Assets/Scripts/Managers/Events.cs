@@ -13,6 +13,8 @@ public static class Events
     public static UnityAction<float> ClickHous;
     public static UnityAction<float> GameEventsBuff;
     public static UnityAction<bool> TutorialOff;
+    public static UnityAction<string> GooseSkin;
+    public static UnityAction<string> GooseMadamSkin;
 
 
 }

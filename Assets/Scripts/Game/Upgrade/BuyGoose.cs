@@ -16,7 +16,6 @@ public class BuyGoose : MonoBehaviour
             double v = 50 * Math.Pow(_multiplyPriceGoose, PlayerPrefs.GetInt("goose") + 1);
             float price = (float)v;
             PlayerPrefs.SetFloat("priceGoose", price);
-       //     PlayerPrefs.SetFloat("priceGoose", PlayerPrefs.GetFloat("priceGoose") * _multiplyPriceGoose);
             buyGoose?.Invoke();
         }
     }

@@ -5,7 +5,7 @@ public class CoinManager : MonoBehaviour
 {
     [HideInInspector] [SerializeField] private Text _eggText;
     [SerializeField] private Text _eggTextQuest;
-    [HideInInspector] [SerializeField] private Text _eggAutoCLickText;
+   [SerializeField] private Text _eggAutoCLickText;
     [SerializeField] private EggText _eggCoinsPrefab;
     [SerializeField] private GameObject[] _spawnEggCoins;
     [SerializeField] private Transform _transformEggCoins;

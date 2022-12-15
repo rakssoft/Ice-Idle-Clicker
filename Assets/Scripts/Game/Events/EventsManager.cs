@@ -5,7 +5,7 @@ using UnityEngine;
 public class EventsManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] _eventsGame;
-
+    private bool eventsCur;
     private void OnEnable()
     {
         Events.TutorialOff += BeginEvents;
@@ -20,6 +20,7 @@ public class EventsManager : MonoBehaviour
     {
         if(eventsBegin == true)
         {
+            
             StartCoroutine(ChoseEvent());
         }
     }
@@ -27,7 +28,13 @@ public class EventsManager : MonoBehaviour
    private  IEnumerator ChoseEvent()
     {
         yield return new WaitForSeconds(Random.Range(20, 35));
-        _eventsGame[Random.Range(0, _eventsGame.Length)].SetActive(true);
+        int random = Random.Range(0, _eventsGame.Length);
+         _eventsGame[random].SetActive(true);
+        if (_eventsGame[random].GetComponent<WolfEvents>())
+        {
+            _eventsGame[random].GetComponent<WolfEvents>().Start();
+        }
+        
 
     }
 

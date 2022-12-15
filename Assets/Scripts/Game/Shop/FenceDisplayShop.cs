@@ -27,7 +27,7 @@ public class FenceDisplayShop : MonoBehaviour
             _lockPanel.SetActive(false);
         }
         _currentLvlText.text = (PlayerPrefs.GetInt("fence") + 1).ToString("F0");
-
+        _currentProfitText.text = PlayerPrefs.GetFloat("profitFence").ToString();
         _currentPriceText.text = PlayerPrefs.GetFloat("priceFence").ToString("F0");
     }
 }

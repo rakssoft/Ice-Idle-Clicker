@@ -52,6 +52,7 @@ public class InputPlayer : MonoBehaviour
     {
 
         click?.Invoke(1);
+        
         Events.AnimGooseMadam?.Invoke("egg_goose_madam", true);
         Events.AnimHouseClick?.Invoke();
         Events.SoundPlay?.Invoke(1);

@@ -17,7 +17,20 @@ public class MaraStatueDisplayShop : MonoBehaviour
     public void Display()
     {
         _currentLvlText.text = (PlayerPrefs.GetInt("maraStatue") + 1).ToString("F0");
-
+        float number = PlayerPrefs.GetFloat("profitMaraStatue");
+        if(number == 1)
+        {
+            number = 0;
+        }
+        else if(number == 1.1)
+        {
+            number = 10;
+        }
+        else if(number == 1.2)
+        {
+            number = 20;
+        }
+        _currentProfitText.text = number.ToString();
         _currentPriceText.text = PlayerPrefs.GetFloat("priceMaraStatue").ToString("F2");
     }
 }

@@ -13,11 +13,13 @@ public class GooseMadamWindow : MonoBehaviour
     private void OnEnable()
     {
         Events.AnimGooseMadam += PlayAnim;
+        Events.GooseMadamSkin += Skin;
     }
 
     private void OnDisable()
     {
         Events.AnimGooseMadam -= PlayAnim;
+        Events.GooseMadamSkin -= Skin;
     }
     private void Start()
     {
@@ -39,5 +41,13 @@ public class GooseMadamWindow : MonoBehaviour
             yield return new WaitForSeconds(Random.Range(8, 12));
             PlayAnim("kru_window_goose_madam", false);
         }
+    }
+
+    private void Skin(string skin)
+    {
+
+        _gooseMadamAnimWindow.initialSkinName = skin;
+        _gooseMadamAnimWindow.Initialize(true);
+        PlayAnim("idle_window_goose_madam", false);
     }
 }

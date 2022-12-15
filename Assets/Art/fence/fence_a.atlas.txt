@@ -1,0 +1,15 @@
+fence_a.png
+size:1024,1024
+filter:Linear,Linear
+pma:true
+fence_1
+bounds:2,361,548,109
+fence_2
+bounds:2,251,548,108
+fence_3
+bounds:2,472,549,109
+fence_shadow
+bounds:2,151,548,98
+offsets:0,5,548,107
+fence_shine
+bounds:2,2,197,147

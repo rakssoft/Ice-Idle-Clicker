@@ -9,9 +9,9 @@ public class WolfEvents : MonoBehaviour
     [SerializeField] private SkeletonAnimation _wolfAnim;
     [SerializeField] private string IdleAnimWolf;
     [SerializeField] private string ClickAnimWolf;
-    void Start()
+   public void Start()
     {
-        Events.GameEventsBuff?.Invoke(0.5f);
+        Events.GameEventsBuff?.Invoke(0.01f);
         Events.MusicPlay?.Invoke(1);
         _panelClick.SetActive(true);
     }
