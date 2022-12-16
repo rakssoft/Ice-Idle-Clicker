@@ -1,0 +1,15 @@
+bg_snowdrift_2.png
+size:2048,2048
+filter:Linear,Linear
+pma:true
+bg_snowdrift_2
+bounds:2,577,1211,436
+bg_snowdrift_2_shine
+bounds:2,1137,80,76
+offsets:0,0,80,78
+bg_window_light_1
+bounds:596,1015,493,198
+offsets:3,22,512,220
+bg_window_light_2
+bounds:84,1052,510,161
+offsets:0,37,522,206

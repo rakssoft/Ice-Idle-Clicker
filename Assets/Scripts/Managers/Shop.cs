@@ -19,6 +19,8 @@ public class Shop : MonoBehaviour
     [SerializeField] private Fence _fence;
     [SerializeField] private FenceDisplayShop _fenceDisplayShop;
     [SerializeField] private GameObject _canBuyShop, _canBuyUpgrade;
+    [SerializeField] private GameObject _shopPanel;
+    
 
 
 
@@ -72,7 +74,16 @@ public class Shop : MonoBehaviour
         {
             PlayerPrefs.SetFloat("egg", PlayerPrefs.GetFloat("egg") - PlayerPrefs.GetFloat("priceHous"));
             PlayerPrefs.SetInt("hous", PlayerPrefs.GetInt("hous") + 1);
+            if (PlayerPrefs.GetInt("hous") == 6)
+            {
+                _shopPanel.SetActive(false);       
+            }
+            else if (PlayerPrefs.GetInt("hous") == 10)
+            {
+                _shopPanel.SetActive(false);     
+            }
             _multiplyIncomeBuildings = RecalMultiplyHous();
+
             PlayerPrefs.SetFloat("profitHous", _multiplyIncomeBuildings);
             _autoClick.RecalAutoClick();
             double v = 70 * Math.Pow(_multiplyPriceBuildings, PlayerPrefs.GetInt("hous") + 1);
@@ -125,7 +136,23 @@ public class Shop : MonoBehaviour
         {
             PlayerPrefs.SetFloat("egg", PlayerPrefs.GetFloat("egg") - PlayerPrefs.GetFloat("priceFeeder"));
             PlayerPrefs.SetInt("feeder", PlayerPrefs.GetInt("feeder") + 1);
-            _multiplyIncomeBuildings = RecalMultiplyFeeder();
+            if(PlayerPrefs.GetInt("feeder") == 1)
+            {
+                _shopPanel.SetActive(false);
+                Events.AnimFeeder?.Invoke("food_appearance", false);
+            }
+            else if (PlayerPrefs.GetInt("feeder") == 6)
+            {
+                _shopPanel.SetActive(false);
+                Events.AnimFeeder?.Invoke("food_upgrade1", false);
+            }
+            else if (PlayerPrefs.GetInt("feeder") == 10)
+            {
+                _shopPanel.SetActive(false);
+                Events.AnimFeeder?.Invoke("food_upgrade2", false);
+            }
+
+                _multiplyIncomeBuildings = RecalMultiplyFeeder();
             PlayerPrefs.SetFloat("profitFeeder", _multiplyIncomeBuildings);
             _autoClick.RecalAutoClick();
             double v = 500 * Math.Pow(_multiplyPriceBuildings, PlayerPrefs.GetInt("feeder") + 1);
@@ -222,6 +249,21 @@ public class Shop : MonoBehaviour
         {
             PlayerPrefs.SetFloat("egg", PlayerPrefs.GetFloat("egg") - PlayerPrefs.GetFloat("priceFence"));
             PlayerPrefs.SetInt("fence", PlayerPrefs.GetInt("fence") + 1);
+            if (PlayerPrefs.GetInt("fence") == 1)
+            {
+                _shopPanel.SetActive(false);
+                Events.AnimFence?.Invoke("fence_appearance", false);
+            }
+            else if (PlayerPrefs.GetInt("fence") == 6)
+            {
+                _shopPanel.SetActive(false);
+                Events.AnimFence?.Invoke("fence_upgrade_1", false);
+            }
+            else if (PlayerPrefs.GetInt("fence") == 10)
+            {
+                _shopPanel.SetActive(false);
+                Events.AnimFence?.Invoke("fence_upgrade_2", false);
+            }
             _multiplyIncomeBuildings = RecalMultiplyFence();
             PlayerPrefs.SetFloat("profitFence", _multiplyIncomeBuildings);
             _autoClick.RecalAutoClick();

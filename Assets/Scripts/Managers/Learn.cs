@@ -276,6 +276,7 @@ public class Learn : MonoBehaviour
         _footer.SetActive(true);
         _header.SetActive(true);
         StartCoroutine(LearnTime15());
+        Events.AnimMorana?.Invoke("morana_appearance", false);
 
     }
     IEnumerator LearnTime15()

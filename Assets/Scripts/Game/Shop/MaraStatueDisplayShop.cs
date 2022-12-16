@@ -31,6 +31,6 @@ public class MaraStatueDisplayShop : MonoBehaviour
             number = 20;
         }
         _currentProfitText.text = number.ToString();
-        _currentPriceText.text = PlayerPrefs.GetFloat("priceMaraStatue").ToString("F2");
+        _currentPriceText.text = PlayerPrefs.GetFloat("priceMaraStatue").ToString("F0");
     }
 }

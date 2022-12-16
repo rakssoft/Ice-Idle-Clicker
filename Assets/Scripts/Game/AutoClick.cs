@@ -43,7 +43,13 @@ public class AutoClick : MonoBehaviour
     public void RecalAutoClick()
     {
 
-        _autoClick = (PlayerPrefs.GetInt("goose") * (1 + PlayerPrefs.GetFloat("profitHous") + PlayerPrefs.GetFloat("profitFence", 0) + PlayerPrefs.GetFloat("profitFeeder") ) ) * _buffEvents;
+        _autoClick = (PlayerPrefs.GetInt("goose")
+            * (1 + PlayerPrefs.GetFloat("profitHous")
+            + PlayerPrefs.GetFloat("profitFence")
+            + PlayerPrefs.GetFloat("profitFeeder")
+            + PlayerPrefs.GetFloat("profitCaftan")
+            + PlayerPrefs.GetFloat("profitkokoshnik")))
+            * _buffEvents;
         PlayerPrefs.SetFloat("autoclick", _autoClick);
       
     }

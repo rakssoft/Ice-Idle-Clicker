@@ -37,34 +37,37 @@ public class QuestHome : MonoBehaviour
 
         if (PlayerPrefs.GetInt("hous") >= 10  && PlayerPrefs.GetInt("questHome") == 0)
         {
-            PlayerPrefs.SetFloat("fragmentswinter", PlayerPrefs.GetFloat("fragmentswinter") + ProfitQuest[PlayerPrefs.GetInt("questHome")] * PlayerPrefs.GetFloat("profitMaraStatue"));
-            PlayerPrefs.SetInt("questHome", 1);
-            
+            SaveProfit();
+            PlayerPrefs.SetInt("questHome", 1);            
         }
         else if (PlayerPrefs.GetInt("hous") >= 20  && PlayerPrefs.GetInt("questHome") == 1)
         {
-            PlayerPrefs.SetFloat("fragmentswinter", PlayerPrefs.GetFloat("fragmentswinter") + ProfitQuest[PlayerPrefs.GetInt("questHome")] * PlayerPrefs.GetFloat("profitMaraStatue"));
-            PlayerPrefs.SetInt("questHome", 2);
-            
+            SaveProfit();
+            PlayerPrefs.SetInt("questHome", 2);           
         }
         else if (PlayerPrefs.GetInt("hous") >= 30  && PlayerPrefs.GetInt("questHome") == 2)
         {
-            PlayerPrefs.SetFloat("fragmentswinter", PlayerPrefs.GetFloat("fragmentswinter") + ProfitQuest[PlayerPrefs.GetInt("questHome")] * PlayerPrefs.GetFloat("profitMaraStatue"));
-            PlayerPrefs.SetInt("questHome", 3);
-            
+            SaveProfit();
+            PlayerPrefs.SetInt("questHome", 3);           
         }
         else if (PlayerPrefs.GetInt("hous") >= 40  && PlayerPrefs.GetInt("questHome") == 3)
         {
-            PlayerPrefs.SetFloat("fragmentswinter", PlayerPrefs.GetFloat("fragmentswinter") + ProfitQuest[PlayerPrefs.GetInt("questHome")] * PlayerPrefs.GetFloat("profitMaraStatue"));
+            SaveProfit();
             PlayerPrefs.SetInt("questHome", 4);
-
         }
         else if (PlayerPrefs.GetInt("hous") >= 50 && PlayerPrefs.GetInt("questHome") == 4)
         {
-            PlayerPrefs.SetFloat("fragmentswinter", PlayerPrefs.GetFloat("fragmentswinter") + ProfitQuest[PlayerPrefs.GetInt("questHome")] * PlayerPrefs.GetFloat("profitMaraStatue"));
+            SaveProfit();
             PlayerPrefs.SetInt("questHome", 5);
         }
         ShowQuest();
+    }
+
+    private void SaveProfit()
+    {
+        PlayerPrefs.SetFloat("fragmentswinter", PlayerPrefs.GetFloat("fragmentswinter")
+                + ProfitQuest[PlayerPrefs.GetInt("questHome")]
+                * (PlayerPrefs.GetFloat("profitMaraStatue") + PlayerPrefs.GetFloat("profitGooseCap")));
     }
 
 

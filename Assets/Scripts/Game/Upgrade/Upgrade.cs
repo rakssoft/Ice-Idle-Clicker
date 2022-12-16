@@ -8,6 +8,47 @@ public class Upgrade : MonoBehaviour
     [SerializeField] private Button _kokoshnikButton;
     [SerializeField] private Button _caftanButton;
 
+    public void ViewUpgradePanel()
+    {
+        if(PlayerPrefs.GetInt("gooseCap") == 0)
+        {
+            _gooseCapButton.interactable = true;
+        }
+        else
+        {
+            _gooseCapButton.interactable = false;
+        }
+        if(PlayerPrefs.GetInt("caftan") == 0)
+        {
+            _caftanButton.interactable = true;
+        }
+        else
+        {
+            _caftanButton.interactable = false;
+        } 
+        if(PlayerPrefs.GetInt("beads") == 0)
+        {
+            _beadsButton.interactable = true;
+        }
+        else
+        {
+            _beadsButton.interactable = false;
+        }
+        if(PlayerPrefs.GetInt("kokoshnik") == 0)
+        {
+            _kokoshnikButton.interactable = true;
+        }
+        else
+        {
+            _kokoshnikButton.interactable = false;
+        }
+
+
+
+
+
+    }
+
     public void BuyGooseCap()
     {
         if (PlayerPrefs.GetFloat("fragmentswinter") >= 200)
@@ -16,6 +57,7 @@ public class Upgrade : MonoBehaviour
             if (PlayerPrefs.GetInt("caftan") == 0)
             {
                 PlayerPrefs.SetInt("gooseCap", 1);
+                PlayerPrefs.SetFloat("profitGooseCap", 0.3f);
                 Events.GooseSkin?.Invoke("hat");
                 _gooseCapButton.interactable = false;
             }
@@ -35,6 +77,7 @@ public class Upgrade : MonoBehaviour
             if (PlayerPrefs.GetInt("gooseCap") == 0)
             {
                 PlayerPrefs.SetInt("caftan", 1);
+                PlayerPrefs.SetFloat("profitCaftan", 0.3f);
                 Events.GooseSkin?.Invoke("coat");
                 _caftanButton.interactable = false;
             }
@@ -74,6 +117,7 @@ public class Upgrade : MonoBehaviour
             if (PlayerPrefs.GetInt("beads") == 0)
             {
                 PlayerPrefs.SetInt("kokoshnik", 1);
+                PlayerPrefs.SetFloat("profitkokoshnik", 0.3f);
                 Events.GooseMadamSkin?.Invoke("goose_kokoshnik");
                 _kokoshnikButton.interactable = false;
             }

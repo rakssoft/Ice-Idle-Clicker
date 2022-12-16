@@ -89,7 +89,7 @@ public class DataSave : MonoBehaviour
 
         if (!PlayerPrefs.HasKey("egg"))
         {
-            PlayerPrefs.SetFloat("egg", 10);
+            PlayerPrefs.SetFloat("egg", 0);
         } 
         if (!PlayerPrefs.HasKey("fragmentswinter"))
         {
@@ -137,14 +137,26 @@ public class DataSave : MonoBehaviour
         if (!PlayerPrefs.HasKey("caftan"))
         {
             PlayerPrefs.SetInt("caftan", 0);
+        }
+        if (!PlayerPrefs.HasKey("profitCaftan"))
+        {
+            PlayerPrefs.SetFloat("profitCaftan", 0);
         } 
         if (!PlayerPrefs.HasKey("kokoshnik"))
         {
             PlayerPrefs.SetInt("kokoshnik", 0);
-        } 
+        }
+        if (!PlayerPrefs.HasKey("profitkokoshnik"))
+        {
+            PlayerPrefs.SetFloat("profitkokoshnik", 0);
+        }
         if (!PlayerPrefs.HasKey("gooseCap"))
         {
             PlayerPrefs.SetInt("gooseCap", 0);
+        }
+        if (!PlayerPrefs.HasKey("profitGooseCap"))
+        {
+            PlayerPrefs.SetFloat("profitGooseCap", 0);
         }
 
 

@@ -35,20 +35,28 @@ public class QuestFeeder : MonoBehaviour
 
         if (PlayerPrefs.GetInt("feeder") >= 5 && PlayerPrefs.GetInt("questFeeder") == 0)
         {
-            PlayerPrefs.SetFloat("fragmentswinter", PlayerPrefs.GetFloat("fragmentswinter") + ProfitQuest[PlayerPrefs.GetInt("questFeeder")] * PlayerPrefs.GetFloat("profitMaraStatue"));
+            SaveProfit();
             PlayerPrefs.SetInt("questFeeder", 1);
         }
         else if (PlayerPrefs.GetInt("feeder") >= 10  &&  PlayerPrefs.GetInt("questFeeder") == 1)
         {
-            PlayerPrefs.SetFloat("fragmentswinter", PlayerPrefs.GetFloat("fragmentswinter") + ProfitQuest[PlayerPrefs.GetInt("questFeeder")] * PlayerPrefs.GetFloat("profitMaraStatue"));
+            SaveProfit();
             PlayerPrefs.SetInt("questFeeder", 2);
         }
         else if (PlayerPrefs.GetInt("feeder") >= 15 && PlayerPrefs.GetInt("questFeeder") == 2)
         {
-            PlayerPrefs.SetFloat("fragmentswinter", PlayerPrefs.GetFloat("fragmentswinter") + ProfitQuest[PlayerPrefs.GetInt("questFeeder")] * PlayerPrefs.GetFloat("profitMaraStatue"));
+            SaveProfit();
             PlayerPrefs.SetInt("questFeeder", 3);
         }
 
         ShowQuest();
+    }
+
+
+    private void SaveProfit()
+    {
+        PlayerPrefs.SetFloat("fragmentswinter", PlayerPrefs.GetFloat("fragmentswinter")
+                + ProfitQuest[PlayerPrefs.GetInt("questFeeder")]
+                * (PlayerPrefs.GetFloat("profitMaraStatue") + PlayerPrefs.GetFloat("profitGooseCap")));
     }
 }

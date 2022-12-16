@@ -37,33 +37,40 @@ public class QuestMorana : MonoBehaviour
         if (PlayerPrefs.GetFloat("egg") >= 500 && PlayerPrefs.GetInt("questMorana") == 0)
         {
             PlayerPrefs.SetFloat("egg", PlayerPrefs.GetFloat("egg") - 500 );
-            PlayerPrefs.SetFloat("fragmentswinter", PlayerPrefs.GetFloat("fragmentswinter") + ProfitQuest[PlayerPrefs.GetInt("questMorana")] * PlayerPrefs.GetFloat("profitMaraStatue"));
+            SaveProfit();
             PlayerPrefs.SetInt("questMorana", 1);
         }
        else if (PlayerPrefs.GetFloat("egg") >= 1000 && PlayerPrefs.GetInt("questMorana") == 1)
         {
             PlayerPrefs.SetFloat("egg", PlayerPrefs.GetFloat("egg") - 1000 );
-            PlayerPrefs.SetFloat("fragmentswinter", PlayerPrefs.GetFloat("fragmentswinter") + ProfitQuest[PlayerPrefs.GetInt("questMorana")] * PlayerPrefs.GetFloat("profitMaraStatue"));
+            SaveProfit();
             PlayerPrefs.SetInt("questMorana", 2);
         } 
         else if (PlayerPrefs.GetFloat("egg") >= 2000 && PlayerPrefs.GetInt("questMorana") == 2)
         {
             PlayerPrefs.SetFloat("egg", PlayerPrefs.GetFloat("egg") - 2000 );
-            PlayerPrefs.SetFloat("fragmentswinter", PlayerPrefs.GetFloat("fragmentswinter") + ProfitQuest[PlayerPrefs.GetInt("questMorana")] * PlayerPrefs.GetFloat("profitMaraStatue"));
+            SaveProfit();
             PlayerPrefs.SetInt("questMorana", 3);
         }   
         else if (PlayerPrefs.GetFloat("egg") >= 4000 && PlayerPrefs.GetInt("questMorana") == 3)
         {
             PlayerPrefs.SetFloat("egg", PlayerPrefs.GetFloat("egg") - 4000 );
-            PlayerPrefs.SetFloat("fragmentswinter", PlayerPrefs.GetFloat("fragmentswinter") + ProfitQuest[PlayerPrefs.GetInt("questMorana")] * PlayerPrefs.GetFloat("profitMaraStatue"));
+            SaveProfit();
             PlayerPrefs.SetInt("questMorana", 4);
         }
         else if (PlayerPrefs.GetFloat("egg") >= 8000 && PlayerPrefs.GetInt("questMorana") == 4)
         {
             PlayerPrefs.SetFloat("egg", PlayerPrefs.GetFloat("egg") - 8000 );
-            PlayerPrefs.SetFloat("fragmentswinter", PlayerPrefs.GetFloat("fragmentswinter") + ProfitQuest[PlayerPrefs.GetInt("questMorana")] * PlayerPrefs.GetFloat("profitMaraStatue"));
+            SaveProfit();
             PlayerPrefs.SetInt("questMorana", 5);
         }
         ShowQuest();
+    }
+
+    private void SaveProfit()
+    {
+        PlayerPrefs.SetFloat("fragmentswinter", PlayerPrefs.GetFloat("fragmentswinter")
+                + ProfitQuest[PlayerPrefs.GetInt("questMorana")]
+                * (PlayerPrefs.GetFloat("profitMaraStatue") + PlayerPrefs.GetFloat("profitGooseCap")));
     }
 }

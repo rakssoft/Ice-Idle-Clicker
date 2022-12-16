@@ -1,15 +1,23 @@
 using UnityEngine;
-
+using Spine.Unity;
 public class Fence : MonoBehaviour
 {
-    [SerializeField] private GameObject _fenceVer1, _fenceVer2, _fencerVer3;
+    [SerializeField] private GameObject _fenceVer;
+    [SerializeField] private SkeletonAnimation _fenceAnim;
+    private string _idleAnim;
+
+    private void OnEnable()
+    {
+        Events.AnimFence += PlayAnim;
+    }
+
+    private void OnDisable()
+    {
+        Events.AnimFence -= PlayAnim;
+    }
     private void Start()
     {
-        _fenceVer1.SetActive(false);
-        _fenceVer2.SetActive(false);
-        _fencerVer3.SetActive(false);
-
-
+        _fenceVer.SetActive(false);
         int updateFence = PlayerPrefs.GetInt("fence");
         UpgradeFence(updateFence);
     }
@@ -25,33 +33,35 @@ public class Fence : MonoBehaviour
         {
             case 0:
                 {
-                    _fenceVer1.SetActive(false);
-                    _fenceVer2.SetActive(false);
-                    _fencerVer3.SetActive(false);
+                    _fenceVer.SetActive(false);
+
                     break;
                 }
             case 1:
                 {
-                    _fenceVer1.SetActive(true);
-                    _fenceVer2.SetActive(false);
-                    _fencerVer3.SetActive(false);
+                    _fenceVer.SetActive(true);
+                    _idleAnim = "fence_idle1";
                     break;
                 }
             case 6:
                 {
-                    _fenceVer1.SetActive(false);
-                    _fenceVer2.SetActive(true);
-                    _fencerVer3.SetActive(false);
+                    _idleAnim = "fence_idle1";
+                    _fenceVer.SetActive(true);
                     break;
                 }
             case 10:
                 {
-                    _fenceVer1.SetActive(false);
-                    _fenceVer2.SetActive(false);
-                    _fencerVer3.SetActive(true);
+                    _idleAnim = "fence_idle3";
+                    _fenceVer.SetActive(true);
                     break;
                 }
 
         }
+    }
+    private void PlayAnim(string animName, bool loop)
+    {
+        UpgradeFence();
+        _fenceAnim.AnimationState.SetAnimation(0, animName, loop);
+        _fenceAnim.AnimationState.AddAnimation(0, _idleAnim, true, 0);
     }
 }

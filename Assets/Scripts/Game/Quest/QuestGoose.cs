@@ -36,26 +36,32 @@ public class QuestGoose : MonoBehaviour
 
         if (PlayerPrefs.GetInt("goose") >= 10 &&  PlayerPrefs.GetInt("questGoose") == 0)
         {
-            PlayerPrefs.SetFloat("fragmentswinter", PlayerPrefs.GetFloat("fragmentswinter") + ProfitQuest[PlayerPrefs.GetInt("questGoose")] * PlayerPrefs.GetFloat("profitMaraStatue"));
+            SaveProfit();
             PlayerPrefs.SetInt("questGoose", 1);
         } 
        else if (PlayerPrefs.GetInt("goose") >= 20 &&  PlayerPrefs.GetInt("questGoose") == 1)
         {
-            PlayerPrefs.SetFloat("fragmentswinter", PlayerPrefs.GetFloat("fragmentswinter") + ProfitQuest[PlayerPrefs.GetInt("questGoose")] * PlayerPrefs.GetFloat("profitMaraStatue"));
+            SaveProfit();
             PlayerPrefs.SetInt("questGoose", 2);
         }
         else if (PlayerPrefs.GetInt("goose") >= 30  && PlayerPrefs.GetInt("questGoose") == 2)
         {
-            PlayerPrefs.SetFloat("fragmentswinter", PlayerPrefs.GetFloat("fragmentswinter") + ProfitQuest[PlayerPrefs.GetInt("questGoose")] * PlayerPrefs.GetFloat("profitMaraStatue"));
+            SaveProfit();
             PlayerPrefs.SetInt("questGoose", 3);
         }
         else if (PlayerPrefs.GetInt("goose") >= 40 &&  PlayerPrefs.GetInt("questGoose") == 3)
         {
-            PlayerPrefs.SetFloat("fragmentswinter", PlayerPrefs.GetFloat("fragmentswinter") + ProfitQuest[PlayerPrefs.GetInt("questGoose")] * PlayerPrefs.GetFloat("profitMaraStatue"));
+            SaveProfit();
             PlayerPrefs.SetInt("questGoose", 4);
         }
 
         ShowQuest();
+    }
+    private void SaveProfit()
+    {
+        PlayerPrefs.SetFloat("fragmentswinter", PlayerPrefs.GetFloat("fragmentswinter")
+                + ProfitQuest[PlayerPrefs.GetInt("questGoose")]
+                * (PlayerPrefs.GetFloat("profitMaraStatue") + PlayerPrefs.GetFloat("profitGooseCap")));
     }
 
 }

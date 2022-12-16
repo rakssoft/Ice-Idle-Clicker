@@ -9,11 +9,13 @@ public class EventsManager : MonoBehaviour
     private void OnEnable()
     {
         Events.TutorialOff += BeginEvents;
+        Events.EventOff += BeginEvents;
     }
 
     private void OnDisable()
     {
         Events.TutorialOff -= BeginEvents;
+        Events.EventOff -= BeginEvents;
     }
 
     private void BeginEvents(bool eventsBegin)
@@ -27,7 +29,7 @@ public class EventsManager : MonoBehaviour
 
    private  IEnumerator ChoseEvent()
     {
-        yield return new WaitForSeconds(Random.Range(20, 35));
+        yield return new WaitForSeconds(Random.Range(30, 35));
         int random = Random.Range(0, _eventsGame.Length);
          _eventsGame[random].SetActive(true);
         if (_eventsGame[random].GetComponent<WolfEvents>())

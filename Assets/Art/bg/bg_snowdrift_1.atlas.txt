@@ -1,0 +1,9 @@
+bg_snowdrift_1.png
+size:2048,2048
+filter:Linear,Linear
+pma:true
+bg_snowdrift_1
+bounds:2,770,1211,523
+bg_snowdrift_1_shine
+bounds:1215,1213,80,78
+rotate:90
