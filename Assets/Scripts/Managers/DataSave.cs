@@ -18,7 +18,7 @@ public class DataSave : MonoBehaviour
         }
         if (!PlayerPrefs.HasKey("profitHous"))
         {
-            PlayerPrefs.SetFloat("profitHous", 0);
+            PlayerPrefs.SetFloat("profitHous", 1);
         } 
         if (!PlayerPrefs.HasKey("priceHous"))
         {

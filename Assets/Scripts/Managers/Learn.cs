@@ -36,6 +36,7 @@ public class Learn : MonoBehaviour
     [SerializeField] private GameObject _buyHomeLearn5;
     [SerializeField] private GameObject _buyLearn8;
     [SerializeField] private GameObject _clickPanelHous;
+    [SerializeField] private GameObject _moranaLive;
 
 
     private void Start()
@@ -291,6 +292,7 @@ public class Learn : MonoBehaviour
         PlayerPrefs.SetInt("learn", 15);
         _learnPanel12.SetActive(false);
         _learnPanel13.SetActive(true);
+        _moranaLive.SetActive(true);
         _backgroundTotorailMorana.SetActive(true);
         _footer.SetActive(false);
         _header.SetActive(false);

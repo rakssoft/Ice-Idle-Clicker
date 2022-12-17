@@ -92,9 +92,9 @@ public class Upgrade : MonoBehaviour
 
     public void BuyBeads()
     {
-        if (PlayerPrefs.GetFloat("fragmentswinter") >= 50)
+        if (PlayerPrefs.GetFloat("fragmentswinter") >= 200)
         {
-            PlayerPrefs.SetFloat("fragmentswinter", PlayerPrefs.GetFloat("fragmentswinter") - 50);
+            PlayerPrefs.SetFloat("fragmentswinter", PlayerPrefs.GetFloat("fragmentswinter") - 200);
             if (PlayerPrefs.GetInt("kokoshnik") == 0)
             {
                 PlayerPrefs.SetInt("beads", 1);

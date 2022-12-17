@@ -1,78 +1,109 @@
-
 using UnityEngine;
-using UnityEngine.UI;
+
 
 public class Quests : MonoBehaviour
 {
-    [SerializeField] private GameObject[] _questComplitedButton;
-    [SerializeField] private GameObject[] lockImage;
-    [SerializeField] private GameObject[] _isComplitedText;
-    [SerializeField] private GameObject _buttonMaranaQuest;
-    private int _idQuest;
-    private int _idComlited;
-    private float _timerQuest;
-    private bool _beginTimer;
+    [SerializeField] private GameObject _canQuest;
+
+
 
     private void OnEnable()
     {
-  
-        Events.QuestComlited += IsDoneQuest;
-        
+        Events.CanQuest += CanQuests;
     }
+
     private void OnDisable()
     {
-
-        Events.QuestComlited -= IsDoneQuest;
-    }
-    private void Start()
-    {
-        _timerQuest = 30f;
-        _beginTimer = false;
-        ShowQuest();
+        Events.CanQuest -= CanQuests;
     }
 
-    private void Update()
+    private void CanQuests()
     {
-        if(_beginTimer == true)
+        if (PlayerPrefs.GetFloat("egg") >= 500 && PlayerPrefs.GetInt("questMorana") == 0)
         {
-            _timerQuest -= Time.deltaTime;
-            if (_timerQuest <= 0)
-            {
-                _buttonMaranaQuest.SetActive(true);
-            }
+            _canQuest.SetActive(true);
         }
-       
-
-    }
-
-    public void ShowQuest()
-    {
-        _idQuest = PlayerPrefs.GetInt("quest");      
-        for (int i = 0; i < lockImage.Length; i++)
+        else if (PlayerPrefs.GetFloat("egg") >= 1000 && PlayerPrefs.GetInt("questMorana") == 1)
         {
-            lockImage[i].SetActive(true);
-            if(i < _idQuest)
-            {
-                lockImage[i].SetActive(false);
-                _questComplitedButton[i].SetActive(false);
-                _isComplitedText[i].SetActive(true);                         
-            }
-        }       
-    }
+            _canQuest.SetActive(true);
+        }
+        else if (PlayerPrefs.GetFloat("egg") >= 2000 && PlayerPrefs.GetInt("questMorana") == 2)
+        {
+            _canQuest.SetActive(true);
+        }
+        else if (PlayerPrefs.GetFloat("egg") >= 4000 && PlayerPrefs.GetInt("questMorana") == 3)
+        {
+            _canQuest.SetActive(true);
+        }
+        else if (PlayerPrefs.GetFloat("egg") >= 8000 && PlayerPrefs.GetInt("questMorana") == 4)
+        {
+            _canQuest.SetActive(true);
+        }
 
-    public void IsDoneQuest()
-    {
-        _beginTimer = true;
-        PlayerPrefs.SetInt("quest", PlayerPrefs.GetInt("quest") + 1);
-        ShowQuest();
-    }
+        else if (PlayerPrefs.GetInt("hous") >= 10 && PlayerPrefs.GetInt("questHome") == 0)
+        {
+            _canQuest.SetActive(true);
+        }
+        else if (PlayerPrefs.GetInt("hous") >= 20 && PlayerPrefs.GetInt("questHome") == 1)
+        {
+            _canQuest.SetActive(true);
+        }
+        else if (PlayerPrefs.GetInt("hous") >= 30 && PlayerPrefs.GetInt("questHome") == 2)
+        {
+            _canQuest.SetActive(true);
+        }
+        else if (PlayerPrefs.GetInt("hous") >= 40 && PlayerPrefs.GetInt("questHome") == 3)
+        {
+            _canQuest.SetActive(true);
+        }
+        else if (PlayerPrefs.GetInt("hous") >= 50 && PlayerPrefs.GetInt("questHome") == 4)
+        {
+            _canQuest.SetActive(true);          
+        }
+        else if (PlayerPrefs.GetInt("goose") >= 10 && PlayerPrefs.GetInt("questGoose") == 0)
+        {
+            _canQuest.SetActive(true);
+        }
+        else if (PlayerPrefs.GetInt("goose") >= 20 && PlayerPrefs.GetInt("questGoose") == 1)
+        {
+            _canQuest.SetActive(true);
+        }
+        else if (PlayerPrefs.GetInt("goose") >= 30 && PlayerPrefs.GetInt("questGoose") == 2)
+        {
+            _canQuest.SetActive(true);
+        }
+        else if (PlayerPrefs.GetInt("goose") >= 40 && PlayerPrefs.GetInt("questGoose") == 3)
+        {
+            _canQuest.SetActive(true);
+        }
 
-    public void BeginNewQuest()
-    {
-        _buttonMaranaQuest.SetActive(false);
-        _beginTimer = false;
-        _timerQuest = 30;
-        lockImage[_idQuest].SetActive(false);
-        ShowQuest();
+        else if (PlayerPrefs.GetInt("fence") >= 1 && PlayerPrefs.GetInt("questFence") == 0)
+        {
+            _canQuest.SetActive(true);
+        }
+        else if (PlayerPrefs.GetInt("fence") >= 2 && PlayerPrefs.GetInt("questFence") == 1)
+        {
+            _canQuest.SetActive(true);
+        }
+        else if (PlayerPrefs.GetInt("fence") >= 3 && PlayerPrefs.GetInt("questFence") == 2)
+        {
+            _canQuest.SetActive(true);
+        }
+        else if (PlayerPrefs.GetInt("feeder") >= 5 && PlayerPrefs.GetInt("questFeeder") == 0)
+        {
+            _canQuest.SetActive(true);
+        }
+        else if (PlayerPrefs.GetInt("feeder") >= 10 && PlayerPrefs.GetInt("questFeeder") == 1)
+        {
+            _canQuest.SetActive(true);
+        }
+        else if (PlayerPrefs.GetInt("feeder") >= 15 && PlayerPrefs.GetInt("questFeeder") == 2)
+        {
+            _canQuest.SetActive(true);
+        }
+        else
+        {
+            _canQuest.SetActive(false);
+        }
     }
 }

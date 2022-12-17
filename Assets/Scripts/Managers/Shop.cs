@@ -39,7 +39,7 @@ public class Shop : MonoBehaviour
     public void CanBuy()
     {
         if (PlayerPrefs.GetFloat("egg") >= PlayerPrefs.GetFloat("priceHous") ||
-            PlayerPrefs.GetFloat("egg") >= PlayerPrefs.GetFloat("priceMaraStatue") ||
+            PlayerPrefs.GetFloat("fragmentswinter") >= PlayerPrefs.GetFloat("priceMaraStatue") ||
              PlayerPrefs.GetFloat("egg") >= PlayerPrefs.GetFloat("priceFence") ||
              PlayerPrefs.GetFloat("egg") >= PlayerPrefs.GetFloat("priceFeeder"))
         {
@@ -97,27 +97,27 @@ public class Shop : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("hous") <= 1)
         {
-            _multiplyIncomeBuildings = 0;
+            _multiplyIncomeBuildings = 0.3f;
         }
         else if (PlayerPrefs.GetInt("hous") == 2)
         {
-            _multiplyIncomeBuildings = 0.3f;
+            _multiplyIncomeBuildings = 0.4f;
         }
         else if ((PlayerPrefs.GetInt("hous") > 2) && (PlayerPrefs.GetInt("hous") < 6))
         {
-            _multiplyIncomeBuildings = 0.4f;
+            _multiplyIncomeBuildings = 0.5f;
         } 
         else if ((PlayerPrefs.GetInt("hous") >= 6) && (PlayerPrefs.GetInt("hous") < 9))
         {
-            _multiplyIncomeBuildings = 0.5f;
+            _multiplyIncomeBuildings = 0.6f;
         } 
         else if ((PlayerPrefs.GetInt("hous") >= 9) && (PlayerPrefs.GetInt("hous") < 12))
         {
-            _multiplyIncomeBuildings = 0.6f;
+            _multiplyIncomeBuildings = 0.7f;
         }
         else if ((PlayerPrefs.GetInt("hous") >= 12) && (PlayerPrefs.GetInt("hous") < 14))
         {
-            _multiplyIncomeBuildings = 0.7f;
+            _multiplyIncomeBuildings = 0.8f;
         }  
 
         else if ((PlayerPrefs.GetInt("hous") >= 14))
@@ -172,27 +172,27 @@ public class Shop : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("feeder") <= 1)
         {
-            _multiplyIncomeBuildings = 0;
+            _multiplyIncomeBuildings = 0.3f;
         }
         else if (PlayerPrefs.GetInt("feeder") == 2)
         {
-            _multiplyIncomeBuildings = 0.3f;
+            _multiplyIncomeBuildings = 0.4f;
         }
         else if ((PlayerPrefs.GetInt("feeder") > 2) && (PlayerPrefs.GetInt("feeder") < 6))
         {
-            _multiplyIncomeBuildings = 0.4f;
+            _multiplyIncomeBuildings = 0.5f;
         }
         else if ((PlayerPrefs.GetInt("feeder") >= 6) && (PlayerPrefs.GetInt("feeder") < 9))
         {
-            _multiplyIncomeBuildings = 0.5f;
+            _multiplyIncomeBuildings = 0.6f;
         }
         else if ((PlayerPrefs.GetInt("feeder") >= 9) && (PlayerPrefs.GetInt("feeder") < 12))
         {
-            _multiplyIncomeBuildings = 0.6f;
+            _multiplyIncomeBuildings = 0.7f;
         }
         else if ((PlayerPrefs.GetInt("feeder") >= 12) && (PlayerPrefs.GetInt("feeder") < 14))
         {
-            _multiplyIncomeBuildings = 0.7f;
+            _multiplyIncomeBuildings = 0.8f;
         }
         else if ((PlayerPrefs.GetInt("feeder") >= 14))
         {
@@ -285,27 +285,27 @@ public class Shop : MonoBehaviour
         string fence = "fence";
         if (PlayerPrefs.GetInt(fence) <= 1)
         {
-            _multiplyIncomeBuildings = 0;
+            _multiplyIncomeBuildings = 0.3f;
         }
         else if (PlayerPrefs.GetInt(fence) == 2)
         {
-            _multiplyIncomeBuildings = 0.3f;
+            _multiplyIncomeBuildings = 0.4f;
         }
         else if ((PlayerPrefs.GetInt(fence) > 2) && (PlayerPrefs.GetInt(fence) < 6))
         {
-            _multiplyIncomeBuildings = 0.4f;
+            _multiplyIncomeBuildings = 0.5f;
         }
         else if ((PlayerPrefs.GetInt(fence) >= 6) && (PlayerPrefs.GetInt(fence) < 9))
         {
-            _multiplyIncomeBuildings = 0.5f;
+            _multiplyIncomeBuildings = 0.6f;
         }
         else if ((PlayerPrefs.GetInt(fence) >= 9) && (PlayerPrefs.GetInt(fence) < 12))
         {
-            _multiplyIncomeBuildings = 0.6f;
+            _multiplyIncomeBuildings = 0.7f;
         }
         else if ((PlayerPrefs.GetInt(fence) >= 12) && (PlayerPrefs.GetInt(fence) < 14))
         {
-            _multiplyIncomeBuildings = 0.7f;
+            _multiplyIncomeBuildings = 0.8f;
         }
         else if ((PlayerPrefs.GetInt(fence) >= 14))
         {

@@ -9,6 +9,7 @@ public static class Events
     public static UnityAction <string, bool> AnimMorana;
     public static UnityAction <string, bool> AnimFeeder;
     public static UnityAction <string, bool> AnimFence;
+    public static UnityAction CanQuest;
     public static UnityAction  AnimHouseClick;
     public static UnityAction  QuestComlited;
     public static UnityAction<int> SoundPlay;
