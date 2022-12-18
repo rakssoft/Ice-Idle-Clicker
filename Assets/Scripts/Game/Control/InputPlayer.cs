@@ -9,21 +9,27 @@ public class InputPlayer : MonoBehaviour
     public Vector2 MousePositions { get; private set; }
     public InputSystems Input => _inputSystem;
     public static UnityAction<float> click;
-
+    private float multiplierClick;
 
     public void OnEnable()
     {
         _inputSystem.Enable();
+        Events.EventBuffClick += EventClickMoon;
     }
     public void OnDisable()
     {
         _inputSystem.Disable();
+        Events.EventBuffClick -= EventClickMoon;
     }
 
     private void Awake()
     {
         _inputSystem = new InputSystems();
-        //    _inputSystem.Player.Touch.performed += ctx => TouchPlayer();
+    }
+
+    private void Start()
+    {
+        multiplierClick = 1;
     }
 
     private void Update()
@@ -37,7 +43,6 @@ public class InputPlayer : MonoBehaviour
                 if (hit.collider.gameObject.TryGetComponent(out Coins coinsGameObject))
                 {
                     click?.Invoke(1);
-                    //   _coinManager.RecalEggs(1);
                 } 
                 if (hit.collider.gameObject.TryGetComponent(out Goose goose))
                 {
@@ -51,7 +56,7 @@ public class InputPlayer : MonoBehaviour
     public void ClickButtonUI()
     {
 
-        click?.Invoke(1);
+        click?.Invoke(multiplierClick);
         
         Events.AnimGooseMadam?.Invoke("egg_goose_madam", true);
         Events.AnimHouseClick?.Invoke();
@@ -60,9 +65,15 @@ public class InputPlayer : MonoBehaviour
     public void ClickButtonUIHous()
     {
 
-        Events.ClickHous?.Invoke(1);
+        Events.ClickHous?.Invoke(multiplierClick);
         Events.AnimHouseClick?.Invoke();
         Events.SoundPlay?.Invoke(1);
+    }
+
+    private void EventClickMoon(float EventClick)
+    {
+          multiplierClick = EventClick;
+
     }
 
 }

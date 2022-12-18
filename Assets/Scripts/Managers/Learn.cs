@@ -52,47 +52,87 @@ public class Learn : MonoBehaviour
                 }
             case 1:
                 {
-                    Learn2();
+                    Learn1();
                     break;
                 } 
             case 2:
                 {
-                    Learn3();
+                    Learn2();
                     break;
                 }
             case 3:
                 {
-                    Learn4();
+                    Learn3();
                     break;
                 } 
             case 4:
                 {
-                    Learn5();
+                    Learn4();
                     break;
                 } 
             case 5:
                 {
-                    Learn6();
+                    Learn5();
                     break;
                 } 
             case 6:
                 {
-                    Learn7();
+                    Learn6();
                     break;
                 } 
             case 7:
                 {
-                    Learn8();
+                    Learn7();
                     break;
                 }  
             case 8:
                 {
-                 //   Learn9();
+                    Learn8();
                     break;
                 }  
             case 9:
                 {
-                //    Learn9();
+                    Learn9();
+                    break;
+                }
+            case 10:
+                {
+                    Learn10();
+                    break;
+                } 
+            case 11:
+                {
+                    Learn11();
+                    break;
+                } 
+            case 12:
+                {
+                    Learn12();
+                    break;
+                } 
+            case 13:
+                {
+                    Learn13();
+                    break;
+                }
+            case 14:
+                {
+                    Learn14();
+                    break;
+                } 
+            case 15:
+                {
+                    Learn15();
+                    break;
+                }
+            case 16:
+                {
+                    Learn16();
+                    break;
+                }
+            case 17:
+                {
+                    Learn17();
                     break;
                 }
             default:
@@ -277,6 +317,7 @@ public class Learn : MonoBehaviour
         _footer.SetActive(true);
         _header.SetActive(true);
         StartCoroutine(LearnTime15());
+        Events.SotredMorana?.Invoke();
         Events.AnimMorana?.Invoke("morana_appearance", false);
 
     }
@@ -320,7 +361,7 @@ public class Learn : MonoBehaviour
 
     public void OffLearn()
     {
-        PlayerPrefs.SetInt("learn", 17);
+        PlayerPrefs.SetInt("learn", 18);
         _learnPanel15.SetActive(false);
         _backgroundTotorail.SetActive(false);
         _footer.SetActive(true);
@@ -348,7 +389,7 @@ public class Learn : MonoBehaviour
 
     private void Update()
     {
-        if(PlayerPrefs.GetInt("learn") == 17)
+        if (PlayerPrefs.GetInt("learn") == 17)
         {
             _clickPanelHous.SetActive(true);
         }

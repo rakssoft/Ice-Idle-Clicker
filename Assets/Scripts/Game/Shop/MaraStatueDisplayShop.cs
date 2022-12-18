@@ -20,11 +20,11 @@ public class MaraStatueDisplayShop : MonoBehaviour
         float number = PlayerPrefs.GetFloat("profitMaraStatue");
         if(number == 1)
         {
-            number = 0;
+            number = 10;
         }
         else if(number == 1.1)
         {
-            number = 10;
+            number = 20;
         }
         else if(number == 1.2)
         {

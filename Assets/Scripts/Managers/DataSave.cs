@@ -10,7 +10,7 @@ public class DataSave : MonoBehaviour
 
     private void Awake()
     {
-        PlayerPrefs.DeleteAll();
+       // PlayerPrefs.DeleteAll();
 
         if (!PlayerPrefs.HasKey("hous"))
         {
@@ -82,10 +82,7 @@ public class DataSave : MonoBehaviour
         }
 
 
-
-
-
-
+      
 
         if (!PlayerPrefs.HasKey("egg"))
         {

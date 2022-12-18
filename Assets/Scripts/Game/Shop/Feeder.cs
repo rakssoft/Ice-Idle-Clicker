@@ -5,6 +5,7 @@ public class Feeder : MonoBehaviour
 {
     [SerializeField] private SkeletonAnimation _feederAnim;
     [SerializeField] private GameObject _feederVer;
+    [SerializeField] private GameObject _clickFeeder;
     private string _idleAnim;
     private void OnEnable()
     {
@@ -18,9 +19,31 @@ public class Feeder : MonoBehaviour
     private void Start()
     {
         _idleAnim = "food_idle1";
+        _clickFeeder.SetActive(false);
         _feederVer.SetActive(false);
         int updateFeeder = PlayerPrefs.GetInt("feeder");
+        if(updateFeeder > 0)
+        {
+            _clickFeeder.SetActive(true);
+        }
         UpgradeFeeder(updateFeeder);
+    }
+
+    public void ClickFeeder()
+    {
+        int clikFeeder = PlayerPrefs.GetInt("feeder");
+        if(clikFeeder < 6)
+        {
+            PlayAnim("food_click1", false);
+        } 
+        else if(clikFeeder >= 6 && clikFeeder < 10)
+        {
+            PlayAnim("food_click2", false);
+        }  
+        else if(clikFeeder >= 10)
+        {
+            PlayAnim("food_click3", false);
+        }
     }
 
     public void UpgradeFeeder()
@@ -41,6 +64,7 @@ public class Feeder : MonoBehaviour
             case 1:
                 {
                     _feederVer.SetActive(true);
+                    _clickFeeder.SetActive(true);
                     _feederAnim.GetComponent<MeshRenderer>().sortingOrder = 0;
                     _idleAnim = "food_idle1";
                     break;

@@ -8,8 +8,8 @@ public class QuestFeence : MonoBehaviour
     [SerializeField] private Text _descriptionQuestText;
     [SerializeField] private Text _profitQuestText;
     private string[] DecsQuest = new[] { "Купить забор 1 уровня",
-                                         "Купить забор 2 уровня",
-                                         "Купить забор 3 уровня"};
+                                         "Купить забор 5 уровня",
+                                         "Купить забор 8 уровня"};
     private int[] ProfitQuest = new int[] { 80, 90, 100 };
     private int _currentLvlQuest;
 
@@ -38,12 +38,12 @@ public class QuestFeence : MonoBehaviour
             SaveProfit();
             PlayerPrefs.SetInt("questFence", 1);
         }
-        else if (PlayerPrefs.GetInt("fence") >= 2  && PlayerPrefs.GetInt("questFence") == 1)
+        else if (PlayerPrefs.GetInt("fence") >= 5  && PlayerPrefs.GetInt("questFence") == 1)
         {
             SaveProfit();
             PlayerPrefs.SetInt("questFence", 2);
         }
-        else if (PlayerPrefs.GetInt("fence") >= 3 &&  PlayerPrefs.GetInt("questFence") == 2)
+        else if (PlayerPrefs.GetInt("fence") >= 8 &&  PlayerPrefs.GetInt("questFence") == 2)
         {
             SaveProfit();
             PlayerPrefs.SetInt("questFence", 3);

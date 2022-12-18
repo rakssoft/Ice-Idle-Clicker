@@ -17,6 +17,7 @@ public class CoinManager : MonoBehaviour
     [SerializeField] private Text _fragmentsWinterTextQuest;
     private float currenteggs;
 
+
     private void OnEnable()
     {
         AutoClick.autoclick += RecalEggs;
@@ -35,6 +36,7 @@ public class CoinManager : MonoBehaviour
     private void Start()
     {
         ShowNumberEggs();
+     
     }
 
     private void ShowNumberEggs()

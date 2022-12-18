@@ -7,22 +7,31 @@ public class MaraStatue : MonoBehaviour
 {
     [SerializeField] private SkeletonAnimation _maraAnim;
     [SerializeField] private GameObject _maraVer;
-
+    [SerializeField] private GameObject _clickMorana;
+    private string idle;
     private void OnEnable()
     {
         Events.AnimMorana += PlayAnim;
+        Events.SotredMorana += Sorted;
     }
 
     private void OnDisable()
     {
         Events.AnimMorana -= PlayAnim;
+        Events.SotredMorana += Sorted;
     }
     private void Start()
     {
         _maraVer.SetActive(false);
+        idle = "morana_idle";
         _maraAnim.GetComponent<MeshRenderer>().sortingOrder = -11;
         int updateMara = PlayerPrefs.GetInt("maraStatue");
         UpgradeMara(updateMara);
+    }
+
+    public void ClickMorana()
+    {
+        PlayAnim("morana_click", false);
     }
 
     public void UpgradeMara()
@@ -37,39 +46,51 @@ public class MaraStatue : MonoBehaviour
             case 0:
                 {
                     _maraVer.SetActive(true);
-
+                    _clickMorana.SetActive(true);
+                    idle = "morana_idle";
                     break;
                 }
             case 1:
                 {
-                    _maraAnim.GetComponent<MeshRenderer>().sortingOrder = -1;
+                    _clickMorana.SetActive(true);
+                    idle = "morana_idle2";
+                    Skin("morana_level_2");
                     break;
                 }
-            case 6:
+            case 2:
                 {
-                    _maraAnim.initialSkinName = "morana_level2";
-                    _maraAnim.Initialize(true);
-                    PlayAnim("morana_idle3", false);
-                    _maraAnim.GetComponent<MeshRenderer>().sortingOrder = -1;
+                    _clickMorana.SetActive(true);
+                    idle = "morana_idle3";
+                    Skin("morana_level_3");
                     break;
                 }
-            case 10:
-                {
-                    _maraAnim.initialSkinName = "morana_level3";
-                    _maraAnim.Initialize(true);
-                    PlayAnim("morana_idle3", false);
-                    _maraAnim.GetComponent<MeshRenderer>().sortingOrder = -1;
-                    _maraAnim.GetComponent<MeshRenderer>().sortingOrder = -1;
-                    break;
-                }
-
         }
     }
 
     private void PlayAnim(string animName, bool loop)
     {
-        _maraAnim.GetComponent<MeshRenderer>().sortingOrder = -1;
         _maraAnim.AnimationState.SetAnimation(0, animName, loop);
-        _maraAnim.AnimationState.AddAnimation(0, "morana_idle3" , true, 0);
+        _maraAnim.AnimationState.AddAnimation(0, idle , true, 0);
+    }
+
+    private void Skin(string skin)
+    {
+        _maraAnim.initialSkinName = skin;
+        _maraAnim.Initialize(true);
+        if(skin == "morana_level_2")
+        {
+         PlayAnim("morana_upgrade1", false);
+        }
+        else if (skin == "morana_level_3")
+        {
+            PlayAnim("morana_upgrade2", false);
+        }
+
+
+    }
+
+    private void Sorted()
+    {
+        _maraAnim.GetComponent<MeshRenderer>().sortingOrder = -1;
     }
 }

@@ -21,8 +21,7 @@ public class EventsManager : MonoBehaviour
     private void BeginEvents(bool eventsBegin)
     {
         if(eventsBegin == true)
-        {
-            
+        {            
             StartCoroutine(ChoseEvent());
         }
     }
@@ -35,6 +34,14 @@ public class EventsManager : MonoBehaviour
         if (_eventsGame[random].GetComponent<WolfEvents>())
         {
             _eventsGame[random].GetComponent<WolfEvents>().Start();
+        }
+        else if (_eventsGame[random].GetComponent<EventsMoon>())
+        {
+            _eventsGame[random].GetComponent<EventsMoon>().StartEvents();
+        }
+        else if (_eventsGame[random].GetComponent<LoveEvent>())
+        {
+            _eventsGame[random].GetComponent<LoveEvent>().StartEvents();
         }
         
 

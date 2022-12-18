@@ -45,7 +45,7 @@ public class Fence : MonoBehaviour
                 }
             case 6:
                 {
-                    _idleAnim = "fence_idle1";
+                    _idleAnim = "fence_idle2";
                     _fenceVer.SetActive(true);
                     break;
                 }

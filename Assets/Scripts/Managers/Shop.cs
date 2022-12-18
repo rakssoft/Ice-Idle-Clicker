@@ -207,6 +207,16 @@ public class Shop : MonoBehaviour
         {
             PlayerPrefs.SetFloat("fragmentswinter", PlayerPrefs.GetFloat("fragmentswinter") - PlayerPrefs.GetFloat("priceMaraStatue"));
             PlayerPrefs.SetInt("maraStatue", PlayerPrefs.GetInt("maraStatue") + 1);
+            if (PlayerPrefs.GetInt("maraStatue") == 1)
+            {
+                _shopPanel.SetActive(false);
+            //    Events.AnimMorana?.Invoke("morana_upgrade1", false);
+            }
+            else if (PlayerPrefs.GetInt("maraStatue") == 2)
+            {
+                _shopPanel.SetActive(false);
+         //       Events.AnimMorana?.Invoke("morana_upgrade2", false);
+            }
             _multiplyIncomeBuildings = RecalMultiplyMarana();
             PlayerPrefs.SetFloat("profitMaraStatue", _multiplyIncomeBuildings);
             _autoClick.RecalAutoClick();

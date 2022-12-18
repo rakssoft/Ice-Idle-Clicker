@@ -12,13 +12,13 @@ public class GooseMadamWindow : MonoBehaviour
 
     private void OnEnable()
     {
-        Events.AnimGooseMadam += PlayAnim;
+        Events.AnimGooseMadamWindow += PlayAnim;
         Events.GooseMadamSkin += Skin;
     }
 
     private void OnDisable()
     {
-        Events.AnimGooseMadam -= PlayAnim;
+        Events.AnimGooseMadamWindow -= PlayAnim;
         Events.GooseMadamSkin -= Skin;
     }
     private void Start()

@@ -35,8 +35,9 @@ public class AutoClick : MonoBehaviour
             if (_timerOut <= 0)
             {
                 _timerOut = _timerOutClick;
-                autoclick?.Invoke(_autoClick);
                 Events.CanQuest?.Invoke();
+                autoclick?.Invoke(_autoClick);
+               
             }
         }
     }
